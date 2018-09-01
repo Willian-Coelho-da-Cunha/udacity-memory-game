@@ -27,5 +27,10 @@ function restartGame(){
 			/*------ADD ONE TO QUANTITY OF REPLAYS OF THE GAME------*/
 			game.play++;
 		}
+		/*------REMOVE CARD-MATCH CLASS------*/
+		for (let i = 0; i < cardMatrix.length; i++) {
+			cardMatrix[i].textContent = "Willian";
+			cardMatrix[i].classList.remove("card-match");
+		}
 	}
 }

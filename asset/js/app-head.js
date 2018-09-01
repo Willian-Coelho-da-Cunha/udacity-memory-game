@@ -43,7 +43,11 @@ function add(){
 /*------STAR RATING SECTION------*/
 let starRating = {
 	restartStartRating(){},
-	removeStar(){}
+	removeStar(){
+		let star = [];
+		star = document.querySelectorAll(".star");
+		star[star.length-1].remove();
+	}
 };
 
 /*------MOVE COUNTER SECTION------*/

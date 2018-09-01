@@ -186,7 +186,19 @@ let card = {
 	numberOfMatchedCards: 0,
 	matchedCards: 0,
 	matched: [],
-	generateRandomNumbers(){},
+	generateRandomNumbers(){
+		let cards = [];
+		for (let i = 0; i <= 27; i++) {
+			cards[i] = i;
+		}
+		for (let i = cards.length; i;) {
+			let nCard = Math.random() * i-- | 0;
+			let obj = cards[nCard];
+			cards[nCard] = cards[i];
+			cards[i] = obj;		
+		}
+		return cards;
+	},
 	rearrangeCards(){}
 };
 

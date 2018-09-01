@@ -44,6 +44,16 @@ function startGame(){
 }
 
 function turnCard(event){
+	/*------INCREASE NUMBER OF CLICKS------*/
+	game.click++;
+
+	/*------PREVENTS THE USER'S THIRD CLICK WHILE A setTimeout FUNCTION DOES NOT END------*/
+	if (game.click !== 1) {
+		if ((game.click % 2) !== 0) {
+			return;
+		}
+	}
+
 	/*------GETTING THE CURRENT ID------*/
 	let indice = event.target.id;
 
@@ -86,6 +96,9 @@ function turnCard(event){
 			/*------CLEAR THE CLICKED CARDS ARRAY------*/
 			card.clickedCards = [];
 
+			/*------RESET NUMBER OF CLICKS------*/
+			game.click = 0;
+
 			/*------VERIFY IF ALL MATCHS WERE FOUND------*/
 			if (card.matchedCards === 14) {
 				game.gameOver();
@@ -108,4 +121,10 @@ function delayDisplayCard(){
 
 	/*------CLEAR THE CLICKED ARRAY------*/
 	card.clickedCards = [];
+
+	/*------RESET NUMBER OF CLICKS------*/
+	game.click = 0;
+
+	/*------END OF TIME OUT------*/
+	endShow = clearTimeout(this.show);
 }

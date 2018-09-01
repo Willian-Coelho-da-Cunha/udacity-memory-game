@@ -37,3 +37,10 @@ footer {
 	padding-top: 10px;
 	color: green;
 }
+
+/*------CHANCES (INSIDE THE MODAL) ------*/
+.chances {
+	color: blue;
+	border-bottom: 2px solid gray;
+	margin-top: 10px;
+}

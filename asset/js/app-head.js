@@ -62,7 +62,9 @@ let game = {
 		fragment.appendChild(chances);
 
 		node.appendChild(fragment);
-		}
+
+		$("#gameOver").modal();
+	}
 }
 
 function gameArena(){

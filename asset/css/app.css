@@ -7,3 +7,10 @@
 header {
 	background: linear-gradient(green, white);
 }
+header>h1 {
+	color: lightblue;
+	font-size: 2.25em;
+}
+header>h2 {
+	font-size: 1.5em;
+}

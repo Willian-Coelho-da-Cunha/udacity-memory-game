@@ -25,6 +25,9 @@ function startGame(){
 	card.matchedCards = 0;
 	card.matched = [];
 	card.clickedCards = [];
+
+	/*------DISTRIBUTING CARDS------*/
+	card.rearrangeCards();
 }
 
 function turnCard(event){}

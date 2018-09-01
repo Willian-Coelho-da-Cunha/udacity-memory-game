@@ -1,10 +1,6 @@
 $("#question").modal();
 
 function startGame(){
-	/*------CHANGE THE GAME PROPERTIES------*/
-	game.gameOn = true;
-	game.gameOff = false;
-
 	/*------DISTRIBUTING CARDS------*/
 	card.rearrangeCards();
 
@@ -92,7 +88,7 @@ function turnCard(event){
 				game.gameOver();
 			}
 		} else {
-			let show, endShow;
+			let show;
 			/*------SHOW CLICKED CARDS WITH SOME TIME AS DELAY------*/
 			show = setTimeout(delayDisplayCard, 1000);
 		}
@@ -114,14 +110,15 @@ function delayDisplayCard(){
 	game.click = 0;
 
 	/*------END OF TIME OUT------*/
-	endShow = clearTimeout(this.show);
+	clearTimeout(this.show);
 }
 
 function restartGame(){
 	/*------CHANGE THE GAME PROPERTIES------*/
-	game.gameOn = false;
-	game.gameOff = true;
 	game.click = 0;
+
+	/*------INITIALIZING THE TIMER------*/
+	timer.timeOff();
 
 	/*------IF THE USER CLICK ON THE BUTTON WITH OUT MATCH NO CARDS------*/
 	let cardMatrix = [];

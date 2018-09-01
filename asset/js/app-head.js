@@ -3,13 +3,12 @@ let timer = {
 	hours: 0,
 	minutes: 0,
 	seconds: 0,
+	time: "",
 	timeOn(){
-		let clock;
-		if (game.gameOn){
-			clock = setTimeout(add, 983);
-		} else {
-			clock = clearTimeout(add, 983);
-		}
+		this.time = setTimeout(add, 983);
+	},
+	timeOff(){
+		clearTimeout(this.time);
 	},
 	restartTimer(){
 		this.hours = 0;
@@ -93,14 +92,10 @@ let moveCounter = {
 
 /*------GAME SECTION------*/
 let game = {
-	gameOn: false,
-	gameOff: false,
 	play: 1,
 	click: 0,
 	gameOver(){
-
-		this.gameOff = true;
-		this.gameOn = false;
+		timer.timeOff();
 
 		const node = document.getElementById("game-score");
 		let fragment, chances, clockString, starNodes, msn, stars, time;

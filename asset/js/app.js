@@ -47,6 +47,9 @@ function turnCard(event){
 	/*------GETTING THE CURRENT ID------*/
 	let indice = event.target.id;
 
+	/*------INCREASE THE MOVE COUNTER------*/
+	moveCounter.increaseCounter();
+
 	/*------ADD STYLE CLASS------*/
 	this.classList.add("card-clicked");
 }

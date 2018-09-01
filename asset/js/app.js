@@ -38,4 +38,7 @@ function restartGame(){
 	card.matchedCards = 0;
 	card.matched = [];
 	card.clickedCards = [];
+
+	/*------RESTART TIMER------*/
+	timer.restartTimer();
 }

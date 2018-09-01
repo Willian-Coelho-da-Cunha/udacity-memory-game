@@ -29,3 +29,11 @@ article>h3 {
 	border: 6px solid #79bd9a;
 	background-color: #0b486b;
 }
+
+/*------FOOTER------*/
+footer {
+	margin-top: 30px;
+	border-top: 3px solid gray;
+	padding-top: 10px;
+	color: green;
+}

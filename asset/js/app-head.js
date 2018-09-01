@@ -13,6 +13,26 @@ let timer = {
 	},
 	restartTimer(){}
 };
+function add(){
+	const objTimer = document.querySelector(".timer");
+	let clockString = "";
+	
+	timer.seconds++;
+	if (timer.seconds > 59){
+		timer.seconds = 0;
+		timer.minutes++;
+		if (timer.minutes > 59){
+			timer.minutes = 0;
+			timer.hours++;
+		}
+	}
+	timer.hours < 10 ? clockString += "0" + timer.hours + ":" : clockString += timer.hours + ":";
+	timer.minutes < 10 ? clockString += "0" + timer.minutes + ":" : clockString += timer.minutes + ":";
+	timer.seconds < 10 ? clockString += "0" + timer.seconds : clockString += timer.seconds;
+	
+	objTimer.textContent = clockString;
+	timer.timeOn();
+}
 
 function gameArena(){
 	const node = document.getElementById("game-arena");

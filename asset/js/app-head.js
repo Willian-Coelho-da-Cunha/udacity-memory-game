@@ -40,6 +40,15 @@ function add(){
 	timer.timeOn();
 }
 
+/*------GAME SECTION------*/
+let game = {
+	gameOn: false,
+	gameOff: false,
+	play: 1,
+	click: 0,
+	gameOver(){}
+}
+
 function gameArena(){
 	const node = document.getElementById("game-arena");
 	let fragment = document.createDocumentFragment();

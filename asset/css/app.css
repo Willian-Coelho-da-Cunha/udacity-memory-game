@@ -23,3 +23,9 @@ header>h2 {
 article>h3 {
 	font-size: 1.25em;
 }
+
+/*------GAME------*/
+#game-arena {
+	border: 6px solid #79bd9a;
+	background-color: #0b486b;
+}

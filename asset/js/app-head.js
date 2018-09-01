@@ -44,7 +44,16 @@ function add(){
 let moveCounter = {
 	moveCounter: 0,
 	displayCounter: 0,
-	increaseCounter(){},
+	increaseCounter(){
+		this.moveCounter++;
+		if ((this.moveCounter % 2) === 0){
+			this.displayCounter++;
+			this.showDisplayCounter();
+		}
+		if ((this.moveCounter === 38) || (this.moveCounter === 48) || (this.moveCounter === 58) || (this.moveCounter === 68) || (this.moveCounter === 78)) {
+			starRating.removeStar();
+		}
+	},
 	showDisplayCounter(){},
 	restartCounter(){}
 };

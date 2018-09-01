@@ -36,6 +36,11 @@ function startGame(){
 	/*------STAR RATING AND MOVE COUNTER------*/
 	starRating.restartStartRating();
 	moveCounter.restartCounter();
+
+	/*------GETTING THE CONTAINER------*/
+	let container = document.querySelector("#game-arena");
+	
+	$(container).on('click', 'DIV', turnCard);
 }
 
 function turnCard(event){}

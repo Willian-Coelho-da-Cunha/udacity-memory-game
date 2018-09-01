@@ -29,3 +29,6 @@ Click on **index.html** file. When the web page loads, a modal appears immediate
 * If the clicked cards are not the same:
 	* They will should return to the starting position;
 * If you combine all cards: You win the game! Congratulations!!!
+
+## Executing the code
+This game was executed in the chrome web browser. And, on the emulators along the chrome browser.

@@ -199,7 +199,14 @@ let card = {
 		}
 		return cards;
 	},
-	rearrangeCards(){}
+	rearrangeCards(){
+		this.rearrangedCards = [];
+		let newLayout = this.generateRandomNumbers();
+		let duplicate = [...this.cards, ...this.cards];
+		for (let i = 0; i <= (newLayout.length - 1); i++) {
+			this.rearrangedCards.push(duplicate[newLayout[i]]);
+		}
+	}
 };
 
 function gameArena(){

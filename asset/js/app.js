@@ -35,6 +35,7 @@ function startGame(){
 
 	/*------STAR RATING AND MOVE COUNTER------*/
 	starRating.restartStartRating();
+	moveCounter.restartCounter();
 }
 
 function turnCard(event){}

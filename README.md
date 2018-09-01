@@ -32,3 +32,10 @@ Click on **index.html** file. When the web page loads, a modal appears immediate
 
 ## Executing the code
 This game was executed in the chrome web browser. And, on the emulators along the chrome browser.
+
+## Validation
+### Markup Validation Service from W3C
+Because of the many contents of the document included by javascript, w3c shows some warnings and an error.
+
+### CSS Validation Service from W3C
+At this date, no error messages were displayed.

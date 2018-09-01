@@ -40,6 +40,15 @@ function add(){
 	timer.timeOn();
 }
 
+/*------MOVE COUNTER SECTION------*/
+let moveCounter = {
+	moveCounter: 0,
+	displayCounter: 0,
+	increaseCounter(){},
+	showDisplayCounter(){},
+	restartCounter(){}
+};
+
 /*------GAME SECTION------*/
 let game = {
 	gameOn: false,

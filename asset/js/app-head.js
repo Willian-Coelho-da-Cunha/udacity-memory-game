@@ -52,15 +52,25 @@ let game = {
 		this.gameOn = false;
 
 		const node = document.getElementById("game-score");
-		let fragment, chances;
+		let fragment, chances, clockString;
+		clockString = "";
 
 		fragment = document.createDocumentFragment();
 
+		/*------DISPLAY USER CHANCES OF WIN THE GAME------*/
 		chances = document.createElement("h6");
 		chances.setAttribute("class", "chances");
 		chances.textContent = "This was your attempt number " + this.play + ".";
 		fragment.appendChild(chances);
 
+		/*------DISPLAY TIMER------*/
+		time = document.createElement("h5");
+			timer.hours < 10 ? clockString += "0" + timer.hours + ":" : clockString += timer.hours + ":";
+			timer.minutes < 10 ? clockString += "0" + timer.minutes + ":" : clockString += timer.minutes + ":";
+			timer.seconds < 10 ? clockString += "0" + timer.seconds : clockString += timer.seconds;
+		time.textContent = "Your time is " + clockString;
+		
+		fragment.appendChild(time);
 		node.appendChild(fragment);
 
 		$("#gameOver").modal();

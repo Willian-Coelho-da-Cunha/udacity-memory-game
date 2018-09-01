@@ -42,6 +42,7 @@ function restartGame(){
 	/*------RESTART TIMER------*/
 	timer.restartTimer();
 
-	/*------STAR RATING------*/
+	/*------STAR RATING AND MOVE COUNTER------*/
 	starRating.restartStartRating();
+	moveCounter.restartCounter();
 }

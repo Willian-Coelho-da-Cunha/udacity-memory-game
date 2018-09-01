@@ -57,6 +57,13 @@ function turnCard(event){
 	/*------GETTING THE CURRENT ID------*/
 	let indice = event.target.id;
 
+	/*------CHECK IF THE CARD YOU CLICKED ON IS THE SAME AS A MATCH ALREADY FOUND------*/
+	for (let i = 0; i < card.matched.length; i++) {
+		if (card.matched[i].idDoc === indice) {
+			return;
+		}
+	}
+
 	/*------INCREASE THE MOVE COUNTER------*/
 	moveCounter.increaseCounter();
 

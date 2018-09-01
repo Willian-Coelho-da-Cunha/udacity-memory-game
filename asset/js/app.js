@@ -66,6 +66,7 @@ function turnCard(event){
 			card.clickedCards.push(objCard);
 		}
 	}
+	if (card.clickedCards.length === 2){}
 }
 
 function delayDisplayCard(){}

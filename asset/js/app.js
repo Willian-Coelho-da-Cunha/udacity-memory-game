@@ -127,9 +127,7 @@ function restartGame(){
 	let cardMatrix = [];
 	cardMatrix = document.querySelectorAll(".card-match");
 
-	if (cardMatrix === null) {
-
-	} else {
+	if (!(cardMatrix === null)) {
 		if (cardMatrix.length === 28)) {
 			/*------ADD ONE TO QUANTITY OF REPLAYS OF THE GAME------*/
 			game.play++;

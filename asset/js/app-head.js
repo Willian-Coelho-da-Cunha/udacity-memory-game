@@ -42,7 +42,19 @@ function add(){
 
 /*------STAR RATING SECTION------*/
 let starRating = {
-	restartStartRating(){},
+	restartStartRating(){
+		const rating = document.querySelector(".star-rating");
+		let star = [];
+		star = document.querySelectorAll(".star");
+		let stars = document.createDocumentFragment();
+		for (let i = star.length; i < 5; i++) {
+			let span = document.createElement("span");
+			span.setAttribute("class", "star");
+			span.innerHTML = "&#10023; ";
+			stars.appendChild(span);
+		}
+		rating.appendChild(stars);
+	},
 	removeStar(){
 		let star = [];
 		star = document.querySelectorAll(".star");

@@ -64,6 +64,13 @@ function turnCard(event){
 		}
 	}
 
+	/*------CHECK IF SAME CARD RECEIVED THE SECOND CLICK------*/
+	if (card.clickedCards.length === 1) {
+		if (card.clickedCards[0].idDoc === indice) {
+			return;
+		}
+	}
+
 	/*------INCREASE THE MOVE COUNTER------*/
 	moveCounter.increaseCounter();
 

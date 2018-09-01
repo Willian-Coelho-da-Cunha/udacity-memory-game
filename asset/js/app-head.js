@@ -3,7 +3,14 @@ let timer = {
 	hours: 0,
 	minutes: 0,
 	seconds: 0,
-	timeOn(){},
+	timeOn(){
+		let clock;
+		if (game.gameOn){
+			clock = setTimeout(add, 983);
+		} else {
+			clock = clearTimeout(add, 983);
+		}
+	},
 	restartTimer(){}
 };
 

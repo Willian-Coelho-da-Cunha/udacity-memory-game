@@ -31,6 +31,7 @@ function startGame(){
 
 	/*------INITIALIZING THE TIMER------*/
 	timer.restartTimer();
+	timer.timeOn();
 }
 
 function turnCard(event){}

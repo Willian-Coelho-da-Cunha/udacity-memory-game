@@ -28,6 +28,9 @@ function startGame(){
 
 	/*------DISTRIBUTING CARDS------*/
 	card.rearrangeCards();
+
+	/*------INITIALIZING THE TIMER------*/
+	timer.restartTimer();
 }
 
 function turnCard(event){}

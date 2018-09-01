@@ -43,6 +43,9 @@ function startGame(){
 	$(container).on('click', 'DIV', turnCard);
 }
 
-function turnCard(event){}
+function turnCard(event){
+	/*------GETTING THE CURRENT ID------*/
+	let indice = event.target.id;
+}
 
 function delayDisplayCard(){}

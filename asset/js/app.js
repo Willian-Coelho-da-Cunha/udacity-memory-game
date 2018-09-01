@@ -72,6 +72,10 @@ function turnCard(event){
 
 			/*------ADD ONE TO MATCHED CARDS------*/
 			card.matchedCards++;
+
+			/*------KEEP THE CARDS------*/
+			card.matched.push(card.clickedCards[0]);
+			card.matched.push(card.clickedCards[1]);
 		}
 	}
 }

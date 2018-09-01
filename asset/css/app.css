@@ -31,6 +31,18 @@ article>h3 {
 }
 
 /*------CARD------*/
+.card {
+	min-width: 140px;
+	max-height: 140px;
+	height: 140px;
+	border-width: 2px 4px 4px 2px;
+	border-style: solid;
+	border-color: white;
+	color: white;
+	font-size: 2em;
+	cursor: pointer;
+	background-color: #302009;
+}
 .card-clicked {
 	font-size: 5em;
 	transform: skewX(4deg);

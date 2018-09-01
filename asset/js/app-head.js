@@ -54,7 +54,12 @@ let moveCounter = {
 			starRating.removeStar();
 		}
 	},
-	showDisplayCounter(){},
+	showDisplayCounter(){
+		const displayPlace = document.querySelector(".move-counter");
+		let show;
+		show = this.displayCounter <= 9 ? "0" + this.displayCounter : this.displayCounter;
+		displayPlace.textContent = show;
+	},
 	restartCounter(){}
 };
 

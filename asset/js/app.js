@@ -85,6 +85,11 @@ function turnCard(event){
 
 			/*------CLEAR THE CLICKED CARDS ARRAY------*/
 			card.clickedCards = [];
+
+			/*------VERIFY IF ALL MATCHS WERE FOUND------*/
+			if (card.matchedCards === 14) {
+				game.gameOver();
+			}
 		}
 	}
 }

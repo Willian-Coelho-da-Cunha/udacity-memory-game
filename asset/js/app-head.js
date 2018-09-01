@@ -143,7 +143,7 @@ let game = {
 					break;
 			}
 			/*------DISPLAY STARS------*/
-			document.createElement("h2");
+			stars = document.createElement("h2");
 			stars.setAttribute("class", "text-center");
 			let qtnStars = "";
 			for (let i = 0; i < starNodes.length; i++) {

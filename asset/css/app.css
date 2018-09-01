@@ -14,3 +14,12 @@ header>h1 {
 header>h2 {
 	font-size: 1.5em;
 }
+
+/*------TIMER, STAR RATING AND MOVE COUNTER------*/
+.controllers {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+article>h3 {
+	font-size: 1.25em;
+}

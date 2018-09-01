@@ -39,3 +39,15 @@ Because of the many contents of the document included by javascript, w3c shows s
 
 ### CSS Validation Service from W3C
 At this date, no error messages were displayed.
+
+## Explanatory note
+I'm a git starter professional. So:
+
+* Because of the project is not big;
+* Because the time;
+* And, because I was working alone;
+
+I did the project and after that, following the construction logic that I used, I split the project in small portions and made the committ.
+Now, because of Udacity's Nanodegree, I know how to work with git. And, certainly, working as a group or alone, I will use git and become a better professional than today.
+The reason for this explanation note is very simple: the time between each committ is very short (especially for a programmer).
+Thank you for understanding.

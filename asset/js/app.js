@@ -45,4 +45,7 @@ function restartGame(){
 	/*------STAR RATING AND MOVE COUNTER------*/
 	starRating.restartStartRating();
 	moveCounter.restartCounter();
+
+	/*------CALL THE FUNCTION TO START THE GAME------*/
+	startGame();
 }

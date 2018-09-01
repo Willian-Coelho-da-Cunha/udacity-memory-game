@@ -1,0 +1,2 @@
+# Memory game
+This game was developed during the front-end web development nanodegree of Udacity. It is a final project to complete the nanodegree program. And, it works with the most current technologies, nowadays.

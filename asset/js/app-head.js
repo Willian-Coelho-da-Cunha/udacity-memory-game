@@ -1,3 +1,12 @@
+/*------TIMER SECTION------*/
+let timer = {
+	hours: 0,
+	minutes: 0,
+	seconds: 0,
+	timeOn(){},
+	restartTimer(){}
+};
+
 function gameArena(){
 	const node = document.getElementById("game-arena");
 	let fragment = document.createDocumentFragment();

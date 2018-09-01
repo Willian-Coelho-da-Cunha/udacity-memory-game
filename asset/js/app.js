@@ -20,4 +20,9 @@ function restartGame(){
 	let cardMatrix = [];
 	cardMatrix = document.querySelectorAll(".card-match");
 
+	if (cardMatrix === null) {
+
+	} else {
+
+	}
 }

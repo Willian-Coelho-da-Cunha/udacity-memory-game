@@ -60,7 +60,12 @@ let moveCounter = {
 		show = this.displayCounter <= 9 ? "0" + this.displayCounter : this.displayCounter;
 		displayPlace.textContent = show;
 	},
-	restartCounter(){}
+	restartCounter(){
+		const displayPlace = document.querySelector(".move-counter");
+		this.moveCounter = 0;
+		this.displayCounter = 0;
+		displayPlace.textContent = "00";
+	}
 };
 
 /*------GAME SECTION------*/

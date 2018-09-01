@@ -9,6 +9,9 @@ function startGame(){
 	/*------IF RESTART THE GAME: REMOVE CARD-MATCH CLASS------*/
 	let verifyClass = document.querySelector(".card-match");
 	if (!(verifyClass === null)) {
+		/*------ADD ONE TO QUANTITY OF REPLAYS OF THE GAME------*/
+		game.play++;
+
 		/*------REMOVE CARD-MATCH CLASS------*/
 		let cardMatrix = [];
 		cardMatrix = document.querySelectorAll(".card");

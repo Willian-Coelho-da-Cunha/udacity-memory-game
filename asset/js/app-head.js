@@ -46,7 +46,23 @@ let game = {
 	gameOff: false,
 	play: 1,
 	click: 0,
-	gameOver(){}
+	gameOver(){
+
+		this.gameOff = true;
+		this.gameOn = false;
+
+		const node = document.getElementById("game-score");
+		let fragment, chances;
+
+		fragment = document.createDocumentFragment();
+
+		chances = document.createElement("h6");
+		chances.setAttribute("class", "chances");
+		chances.textContent = "This was your attempt number " + this.play + ".";
+		fragment.appendChild(chances);
+
+		node.appendChild(fragment);
+		}
 }
 
 function gameArena(){

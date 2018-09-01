@@ -66,7 +66,14 @@ function turnCard(event){
 			card.clickedCards.push(objCard);
 		}
 	}
-	if (card.clickedCards.length === 2){}
+	if (card.clickedCards.length === 2){
+				/*------CLICKED CARDS MATCH?------*/
+		if (card.clickedCards[0].idCard === card.clickedCards[1].idCard) {
+
+			/*------ADD ONE TO MATCHED CARDS------*/
+			card.matchedCards++;
+		}
+	}
 }
 
 function delayDisplayCard(){}

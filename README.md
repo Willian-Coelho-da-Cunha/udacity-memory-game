@@ -16,3 +16,16 @@ Cascade Style Sheet (CSS).
 
 ### HTML5
 Hypertext Markup language (HTML).
+
+## Logic of the game
+Click on **index.html** file. When the web page loads, a modal appears immediately.
+* Press **Star game!** button;
+* Click on any card;
+* Click on another card;
+	* The game does not allow clicking on the same clicked or the corresponding card. So, if you do this, nothing will should happen.
+* If the clicked cards are the same:
+	* You play a game;
+	* The cards leave the game;
+* If the clicked cards are not the same:
+	* They will should return to the starting position;
+* If you combine all cards: You win the game! Congratulations!!!

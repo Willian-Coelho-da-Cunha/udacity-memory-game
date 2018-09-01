@@ -92,9 +92,16 @@ let game = {
 					msn.textContent = "Congratulations!!! Your memory and you are incredibles. You are five stars!";
 					break;
 			}
-		}
+			/*------DISPLAY STARS------*/
+			document.createElement("h2");
+			stars.setAttribute("class", "text-center");
+			let qtnStars = "";
+			for (let i = 0; i < starNodes.length; i++) {
+				qtnStars += "&#10023; ";
+			}
 			stars.innerHTML = qtnStars;
 			fragment.appendChild(stars);
+
 		} else {
 			msn.textContent = "Sorry!!! You didn\'t win stars!!!";
 		}

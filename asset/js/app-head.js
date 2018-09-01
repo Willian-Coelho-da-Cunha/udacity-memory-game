@@ -102,7 +102,7 @@ let game = {
 		this.gameOn = false;
 
 		const node = document.getElementById("game-score");
-		let fragment, chances, clockString;
+		let fragment, chances, clockString, starNodes, msn, stars, time;
 		clockString = "";
 
 		fragment = document.createDocumentFragment();

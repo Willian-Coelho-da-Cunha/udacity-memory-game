@@ -46,6 +46,9 @@ function startGame(){
 function turnCard(event){
 	/*------GETTING THE CURRENT ID------*/
 	let indice = event.target.id;
+
+	/*------ADD STYLE CLASS------*/
+	this.classList.add("card-clicked");
 }
 
 function delayDisplayCard(){}

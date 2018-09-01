@@ -30,6 +30,15 @@ article>h3 {
 	background-color: #0b486b;
 }
 
+/*------CARD------*/
+.card-clicked {
+	font-size: 5em;
+	transform: skewX(4deg);
+	transform: skewY(4deg);
+	background-color: #cff09e;
+	transition: all 1s ease;
+}
+
 /*------FOOTER------*/
 footer {
 	margin-top: 30px;

@@ -90,6 +90,10 @@ function turnCard(event){
 			if (card.matchedCards === 14) {
 				game.gameOver();
 			}
+		} else {
+			let show, endShow;
+			/*------SHOW CLICKED CARDS WITH SOME TIME AS DELAY------*/
+			show = setTimeout(delayDisplayCard, 1000);
 		}
 	}
 }

@@ -52,6 +52,20 @@ function turnCard(event){
 
 	/*------ADD STYLE CLASS------*/
 	this.classList.add("card-clicked");
+
+	for (let i = 0; i <= 27; i++) {
+		if (indice === "rr"+i){
+			/*------DISPLAY THE CARD------*/
+			this.textContent = card.rearrangedCards[i].card;
+			/*------kEEP THE CARD------*/
+			let objCard = {
+				idDoc: indice,
+				card: card.rearrangedCards[i].card,
+				idCard: card.rearrangedCards[i].id
+			};
+			card.clickedCards.push(objCard);
+		}
+	}
 }
 
 function delayDisplayCard(){}

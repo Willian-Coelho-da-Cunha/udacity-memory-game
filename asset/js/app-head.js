@@ -69,8 +69,38 @@ let game = {
 			timer.minutes < 10 ? clockString += "0" + timer.minutes + ":" : clockString += timer.minutes + ":";
 			timer.seconds < 10 ? clockString += "0" + timer.seconds : clockString += timer.seconds;
 		time.textContent = "Your time is " + clockString;
-		
+
+		/*------DISPLAY MESSAGE TO THE PLAYER------*/
+		starNodes = [];
+		starNodes = document.querySelectorAll(".star");
+		msn = document.createElement("h5");
+		if (starNodes.length !== 0) {
+			switch(starNodes.length) {
+				case 1:
+					msn.textContent = "Don\'t give up!!! You already won a star!";
+					break;
+				case 2:
+					msn.textContent = "Tha\'s cool!!! You won two stars!";
+					break;
+				case 3:
+					msn.textContent = "Great!!! You won three stars!";
+					break;
+				case 4:
+					msn.textContent = "Wow!!! Almost there! You won four stars!";
+					break;
+				case 5:
+					msn.textContent = "Congratulations!!! Your memory and you are incredibles. You are five stars!";
+					break;
+			}
+		}
+			stars.innerHTML = qtnStars;
+			fragment.appendChild(stars);
+		} else {
+			msn.textContent = "Sorry!!! You didn\'t win stars!!!";
+		}
+
 		fragment.appendChild(time);
+		fragment.appendChild(msn);
 		node.appendChild(fragment);
 
 		$("#gameOver").modal();

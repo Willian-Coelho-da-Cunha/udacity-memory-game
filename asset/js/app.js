@@ -41,4 +41,7 @@ function restartGame(){
 
 	/*------RESTART TIMER------*/
 	timer.restartTimer();
+
+	/*------STAR RATING------*/
+	starRating.restartStartRating();
 }

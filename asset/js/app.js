@@ -76,6 +76,13 @@ function turnCard(event){
 			/*------KEEP THE CARDS------*/
 			card.matched.push(card.clickedCards[0]);
 			card.matched.push(card.clickedCards[1]);
+
+			/*------STYLE CARD------*/
+			document.querySelector("#" + card.clickedCards[0].idDoc).classList.add("card-match");
+			document.querySelector("#" + card.clickedCards[1].idDoc).classList.add("card-match");
+			document.querySelector("#" + card.clickedCards[0].idDoc).classList.remove("card-clicked");
+			document.querySelector("#" + card.clickedCards[1].idDoc).classList.remove("card-clicked");
+
 		}
 	}
 }

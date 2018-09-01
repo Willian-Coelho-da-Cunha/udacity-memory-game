@@ -38,6 +38,13 @@ article>h3 {
 	background-color: #cff09e;
 	transition: all 1s ease;
 }
+.card-match {
+	font-size: 5em;
+	color: black;
+	border-color: #cff09e;
+	background: radial-gradient(white 40%, #556921);
+	transition: all 2s ease;
+}
 
 /*------FOOTER------*/
 footer {

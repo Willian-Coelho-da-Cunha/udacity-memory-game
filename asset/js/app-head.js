@@ -11,7 +11,13 @@ let timer = {
 			clock = clearTimeout(add, 983);
 		}
 	},
-	restartTimer(){}
+	restartTimer(){
+		this.hours = 0;
+		this.minutes = 0;
+		this.seconds = 0;
+		const place = document.querySelector(".timer");
+		place.textContent = "00:00:00";
+	}
 };
 function add(){
 	const objTimer = document.querySelector(".timer");

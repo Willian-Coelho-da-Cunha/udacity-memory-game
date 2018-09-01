@@ -164,6 +164,32 @@ let game = {
 	}
 }
 
+/*------CARD------*/
+let card = {
+	cards: [
+		{card: "❦", id: 0},
+		{card: "❧", id: 1},
+		{card: "☙", id: 2},
+		{card: "❥", id: 3},
+		{card: "❣", id: 4},
+		{card: "➳", id: 5},
+		{card: "💝", id: 6},
+		{card: "💕", id: 7},
+		{card: "🌹", id: 8},
+		{card: "🌷", id: 9},
+		{card: "💐", id: 10},
+		{card: "🌺", id: 11},
+		{card: "ꙮ", id: 12},
+		{card: "❀", id: 13}],
+	rearrangedCards: [],
+	clickedCards: [],
+	numberOfMatchedCards: 0,
+	matchedCards: 0,
+	matched: [],
+	generateRandomNumbers(){},
+	rearrangeCards(){}
+};
+
 function gameArena(){
 	const node = document.getElementById("game-arena");
 	let fragment = document.createDocumentFragment();

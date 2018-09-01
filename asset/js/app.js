@@ -83,6 +83,8 @@ function turnCard(event){
 			document.querySelector("#" + card.clickedCards[0].idDoc).classList.remove("card-clicked");
 			document.querySelector("#" + card.clickedCards[1].idDoc).classList.remove("card-clicked");
 
+			/*------CLEAR THE CLICKED CARDS ARRAY------*/
+			card.clickedCards = [];
 		}
 	}
 }

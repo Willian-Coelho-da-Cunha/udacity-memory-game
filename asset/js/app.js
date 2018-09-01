@@ -98,4 +98,14 @@ function turnCard(event){
 	}
 }
 
-function delayDisplayCard(){}
+function delayDisplayCard(){
+
+	/*------RESTART STYLE CARD------*/
+	document.querySelector("#" + card.clickedCards[0].idDoc).textContent = "Willian";
+	document.querySelector("#" + card.clickedCards[1].idDoc).textContent = "Willian";
+	document.querySelector("#" + card.clickedCards[0].idDoc).classList.remove("card-clicked");
+	document.querySelector("#" + card.clickedCards[1].idDoc).classList.remove("card-clicked");
+
+	/*------CLEAR THE CLICKED ARRAY------*/
+	card.clickedCards = [];
+}

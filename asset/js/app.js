@@ -23,6 +23,9 @@ function restartGame(){
 	if (cardMatrix === null) {
 
 	} else {
-
+		if (cardMatrix.length === 28)) {
+			/*------ADD ONE TO QUANTITY OF REPLAYS OF THE GAME------*/
+			game.play++;
+		}
 	}
 }

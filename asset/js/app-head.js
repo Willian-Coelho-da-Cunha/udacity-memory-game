@@ -40,6 +40,12 @@ function add(){
 	timer.timeOn();
 }
 
+/*------STAR RATING SECTION------*/
+let starRating = {
+	restartStartRating(){},
+	removeStar(){}
+};
+
 /*------MOVE COUNTER SECTION------*/
 let moveCounter = {
 	moveCounter: 0,

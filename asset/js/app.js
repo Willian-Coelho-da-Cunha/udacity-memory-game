@@ -32,6 +32,9 @@ function startGame(){
 	/*------INITIALIZING THE TIMER------*/
 	timer.restartTimer();
 	timer.timeOn();
+
+	/*------STAR RATING AND MOVE COUNTER------*/
+	starRating.restartStartRating();
 }
 
 function turnCard(event){}

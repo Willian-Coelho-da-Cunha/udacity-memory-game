@@ -47,7 +47,8 @@ let starRating = {
 		let star = [];
 		star = document.querySelectorAll(".star");
 		let stars = document.createDocumentFragment();
-		for (let i = star.length; i < 5; i++) {
+		/*posReview-1: Stars' number must be until 3*/
+		for (let i = star.length; i < 3; i++) {
 			let span = document.createElement("span");
 			span.setAttribute("class", "star");
 			span.innerHTML = "&#10023; ";
@@ -72,7 +73,7 @@ let moveCounter = {
 			this.displayCounter++;
 			this.showDisplayCounter();
 		}
-		if ((this.moveCounter === 38) || (this.moveCounter === 48) || (this.moveCounter === 58) || (this.moveCounter === 68) || (this.moveCounter === 78)) {
+		if ((this.moveCounter === 38) || (this.moveCounter === 58) || (this.moveCounter === 78)) {
 			starRating.removeStar();
 		}
 	},
@@ -130,16 +131,10 @@ let game = {
 					msn.textContent = "Don\'t give up!!! You already won a star!";
 					break;
 				case 2:
-					msn.textContent = "Tha\'s cool!!! You won two stars!";
+					msn.textContent = "Wow!!! Almost there! You won two stars!";
 					break;
 				case 3:
-					msn.textContent = "Great!!! You won three stars!";
-					break;
-				case 4:
-					msn.textContent = "Wow!!! Almost there! You won four stars!";
-					break;
-				case 5:
-					msn.textContent = "Congratulations!!! Your memory and you are incredibles. You are five stars!";
+					msn.textContent = "Congratulations!!! Your memory and you are incredibles. You are three stars!";
 					break;
 			}
 			/*------DISPLAY STARS------*/

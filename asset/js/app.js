@@ -20,6 +20,11 @@ function startGame(){
 			cardMatrix[i].classList.remove("card-match");
 		}
 	}
+
+	/*------RESET THE CARD PROPERTIES------*/
+	card.matchedCards = 0;
+	card.matched = [];
+	card.clickedCards = [];
 }
 
 function turnCard(event){}

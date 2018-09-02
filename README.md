@@ -41,7 +41,7 @@ Click on **index.html** file twice. When the web page loads, a modal appears imm
 You can restart the game at any moment. When you restart it, the timer, star rating and move counter come back to initial state.
 
 ## Executing the code
-This game was executed in the chrome web browser. And, on the emulators along the chrome browser.
+This game was executed in the chrome web browser. And, on the emulators for mobile devices along the chrome browser.
 
 ## Validation
 ### Markup Validation Service from W3C

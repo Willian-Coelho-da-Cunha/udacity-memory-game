@@ -23,7 +23,7 @@ let timer = {
 		clearTimeout(this.time);
 	},
 	/**
-	* @description Restart the timer when the user restart the game.
+	* @description Restart the timer when the user restarts the game.
 	*/
 	restartTimer(){
 		this.hours = 0;
@@ -57,8 +57,15 @@ function add(){
 	timer.timeOn();
 }
 
-/*------STAR RATING SECTION------*/
+/**
+* @description This object has two methods. They are responsable to set and display a star rating to the user as a way 
+* to show his or her respective performance.
+*/
 let starRating = {
+	/**
+	* @description Restart the star rating when the user restarts the game.
+	* Use a 'document fragment' to prevent reflow and new design generation.
+	*/
 	restartStartRating(){
 		const rating = document.querySelector(".star-rating");
 		let star = [];
@@ -73,6 +80,9 @@ let starRating = {
 		}
 		rating.appendChild(stars);
 	},
+	/**
+	* @description When a specific number of moves happen, this function is called to remove a star from the user rating star.
+	*/
 	removeStar(){
 		let star = [];
 		star = document.querySelectorAll(".star");

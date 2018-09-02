@@ -90,10 +90,21 @@ let starRating = {
 	}
 };
 
-/*------MOVE COUNTER SECTION------*/
+/**
+* @description Capture the quantity of clickes done by the user.
+* @param {integer} moveCounter - This property is responsable to capture the clickes done by the user.
+*moveCounter value is not shown to the user.
+* @param {integer} displayCounter - A match is complete when two cards are the same. So, it is necessary two clicks to 
+*display the cards each time. Because of this, the displayCounter is increased once each two right clicks. Right clicks is 
+*the same as valid click. displayCounter value is shown to the user.
+*/
 let moveCounter = {
 	moveCounter: 0,
 	displayCounter: 0,
+	/**
+	* @description Capture the valid click. If divisible by two, increase the displayCounter. And, it is responsable to 
+	*determine when a star will be removed from user star rating.
+	*/
 	increaseCounter(){
 		this.moveCounter++;
 		if ((this.moveCounter % 2) === 0){
@@ -104,12 +115,20 @@ let moveCounter = {
 			starRating.removeStar();
 		}
 	},
+	/**
+	* @description This method is called by increaseCounter method when the game needs to change the value of Move counter 
+	*on the Graphical User Interface.
+	*/
 	showDisplayCounter(){
 		const displayPlace = document.querySelector(".move-counter");
 		let show;
 		show = this.displayCounter <= 9 ? "0" + this.displayCounter : this.displayCounter;
 		displayPlace.textContent = show;
 	},
+	/**
+	* @description This method is responsable to restart the moveCounter parameters. As weel as, bring the move counter
+	*number to zero when the user restarts the game.
+	*/
 	restartCounter(){
 		const displayPlace = document.querySelector(".move-counter");
 		this.moveCounter = 0;

@@ -45,7 +45,9 @@ This game was executed in the chrome web browser. And, on the emulators for mobi
 
 ## Validation
 ### Markup Validation Service from W3C
-Because of the many contents of the document included by javascript, w3c shows some warnings and an error.
+The code of this project was verified at September 01st, 2018, by Markup Validation Service from W3C.
+* No error was found.
+* Three warnings about html section without headings.
 
 ### CSS Validation Service from W3C
 At this date, no error messages were displayed.

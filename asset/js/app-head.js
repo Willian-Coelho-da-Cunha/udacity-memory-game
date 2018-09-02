@@ -1,15 +1,30 @@
-/*------TIMER SECTION------*/
+/**
+* @description Represents the time controllers.
+* @param {integer} hours - The value is the same as a digital clock.
+* @param {integer} minutes - The value is the same as a digital clock.
+* @param {integer} seconds - The value is the same as a digital clock.
+* @param {string} time - This property receive the setTimeout method
+*/
 let timer = {
 	hours: 0,
 	minutes: 0,
 	seconds: 0,
 	time: "",
+	/**
+	* @description Start the digital timer
+	*/
 	timeOn(){
 		this.time = setTimeout(add, 983);
 	},
+	/**
+	* @description Stop the digital timer
+	*/
 	timeOff(){
 		clearTimeout(this.time);
 	},
+	/**
+	* @description Restart the timer when the user restart the game.
+	*/
 	restartTimer(){
 		this.hours = 0;
 		this.minutes = 0;
@@ -18,6 +33,9 @@ let timer = {
 		place.textContent = "00:00:00";
 	}
 };
+/**
+* @description This function is responsable to encrease and display the current timer to the user
+*/
 function add(){
 	const objTimer = document.querySelector(".timer");
 	let clockString = "";

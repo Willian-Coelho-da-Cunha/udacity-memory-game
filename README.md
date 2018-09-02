@@ -28,17 +28,28 @@ very important for the player.
 Click on **index.html** file twice. When the web page loads, a modal appears immediately.
 
 * Press **Star game!** button;
-	At this moment, the timer runs, your stars on the star rating are in risks and the move counter is prepared to you.
+
+At this moment, the timer runs, your stars on the star rating are in risks and the move counter is prepared to you.
+
 * Click on any card;
-	The clicked card shows its content. And the game keep it.
+
+The clicked card shows its content. And the game keep it.
+
 * Click on another card;
-	At this moment, the game check the cards.
-	The game does not allow clicking on the same clicked or the corresponding card. So, if you do this, nothing will should 
-	happen anymore.
+
+At this moment, the game check the cards.
+
+The game does not allow clicking on the same clicked or the corresponding card. So, if you do this, nothing will should 
+happen anymore.
+
 * If the clicked cards are the same:
-	You play a game; Go ahead! The cards leave the game. No clicked effect was show anymore.
+
+You play a game; Go ahead! The cards leave the game. No clicked effect was show anymore.
+
 * If the clicked cards are not the same:
-	They will should return to the starting position
+
+They will should return to the starting position
+
 * If you combine all cards: You win the game! Congratulations!!!
 
 You can restart the game at any moment. When you restart it, the timer, star rating and move counter come back to initial state.
@@ -64,8 +75,10 @@ I'm a git starter professional. So:
 
 I did the project and after that, following the construction logic that I used, I split the project in small portions 
 and made the commit on the git.
+
 Now, because of Udacity's Nanodegree, I know how to work with git. And, certainly, working as a group or alone, I will 
 use git and become a better professional than today.
+
 The reason for this explanation note is very simple: the time between each commit is very short (especially for a programmer).
 Thank you for understanding.
 

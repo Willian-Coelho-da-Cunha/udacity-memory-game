@@ -52,14 +52,20 @@ The code of this project was verified at September 01st, 2018, by Markup Validat
 ### CSS Validation Service from W3C
 At this date, no error messages were displayed.
 
-## Explanatory note
+## Explanation note
 I'm a git starter professional. So:
 
 * Because of the project is not big;
 * Because the time;
 * And, because I was working alone;
 
-I did the project and after that, following the construction logic that I used, I split the project in small portions and made the committ.
-Now, because of Udacity's Nanodegree, I know how to work with git. And, certainly, working as a group or alone, I will use git and become a better professional than today.
-The reason for this explanation note is very simple: the time between each committ is very short (especially for a programmer).
+I did the project and after that, following the construction logic that I used, I split the project in small portions 
+and made the commit on the git.
+Now, because of Udacity's Nanodegree, I know how to work with git. And, certainly, working as a group or alone, I will 
+use git and become a better professional than today.
+The reason for this explanation note is very simple: the time between each commit is very short (especially for a programmer).
 Thank you for understanding.
+
+## Note
+The note above is about this project before Udacity's review. After the review, I worked in the project using the technologies 
+described above and, of course, Git.

@@ -1,5 +1,9 @@
 $("#question").modal();
 
+/**
+* @description This function is called in the first time after the page is loaded, when the user clicks on 
+*start game button on a modal.
+*/
 function startGame(){
 	/*------DISTRIBUTING CARDS------*/
 	card.rearrangeCards();
@@ -13,6 +17,12 @@ function startGame(){
 	$(container).on('click', 'DIV', turnCard);
 }
 
+/**
+* @description This function is responsable to implement the rules of the game. Recognize the target of an event, apply methods 
+*and rules and prevent some mistakes during the game.
+*As soon as, verify if the user wins the game.
+* @param {event} event - Characteristics of the event.
+*/
 function turnCard(event){
 	/*------INCREASE NUMBER OF CLICKS------*/
 	game.click++;
@@ -89,7 +99,10 @@ function turnCard(event){
 		}
 	}
 }
-
+ /**
+ * @description This function is called when the user doesn't get match two cards.
+ *This function is responsable to prepared the game arena for a new attempt.
+ */
 function delayDisplayCard(){
 
 	/*------RESTART STYLE CARD------*/
@@ -108,6 +121,12 @@ function delayDisplayCard(){
 	clearTimeout(this.show);
 }
 
+/**
+* @description This function is responsable to restart the game when the game ends and the user wants to play again and all the 
+*times that the user click on the restart game button.
+*This function calls some methods to restart the game and prepared the game arena.
+*As well as, the game controllers.
+*/
 function restartGame(){
 	/*------DISABLE THE EVENT------*/
 	let container = document.querySelector("#game-arena");

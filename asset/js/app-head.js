@@ -1,9 +1,9 @@
 /**
 * @description Represents the time controllers.
-* @param {integer} hours - The value is the same as a digital clock.
-* @param {integer} minutes - The value is the same as a digital clock.
-* @param {integer} seconds - The value is the same as a digital clock.
-* @param {string} time - This property receive the setTimeout method
+* @property {integer} hours - The value is the same as a digital clock.
+* @property {integer} minutes - The value is the same as a digital clock.
+* @property {integer} seconds - The value is the same as a digital clock.
+* @property {string} time - This property receive the setTimeout method
 */
 let timer = {
 	hours: 0,
@@ -92,9 +92,9 @@ let starRating = {
 
 /**
 * @description Capture the quantity of clickes done by the user.
-* @param {integer} moveCounter - This property is responsable to capture the clickes done by the user.
+* @property {integer} moveCounter - This property is responsable to capture the clickes done by the user.
 *moveCounter value is not shown to the user.
-* @param {integer} displayCounter - A match is complete when two cards are the same. So, it is necessary two clicks to 
+* @property {integer} displayCounter - A match is complete when two cards are the same. So, it is necessary two clicks to 
 *display the cards each time. Because of this, the displayCounter is increased once each two right clicks. Right clicks is 
 *the same as valid click. displayCounter value is shown to the user.
 */

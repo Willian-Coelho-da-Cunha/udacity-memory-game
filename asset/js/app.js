@@ -9,7 +9,7 @@ function startGame(){
 
 	/*------GETTING THE CONTAINER------*/
 	let container = document.querySelector("#game-arena");
-	
+
 	$(container).on('click', 'DIV', turnCard);
 }
 
@@ -18,12 +18,10 @@ function turnCard(event){
 	game.click++;
 
 	/*------PREVENTS THE USER'S THIRD CLICK WHILE A setTimeout FUNCTION DOES NOT END------*/
-	if (game.click !== 1) {
-		if ((game.click % 2) !== 0) {
-			return;
-		}
+	if (game.click > 2) {
+		return;
 	}
-
+	
 	/*------GETTING THE CURRENT ID------*/
 	let indice = event.target.id;
 
@@ -114,6 +112,10 @@ function delayDisplayCard(){
 }
 
 function restartGame(){
+	/*------DISABLE THE EVENT------*/
+	let container = document.querySelector("#game-arena");
+	$(container).off('click', 'DIV');
+
 	/*------CHANGE THE GAME PROPERTIES------*/
 	game.click = 0;
 

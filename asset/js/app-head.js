@@ -97,6 +97,10 @@ let game = {
 	gameOver(){
 		timer.timeOff();
 
+		/*------DISABLE THE EVENT------*/
+		let container = document.querySelector("#game-arena");
+		$(container).off('click', 'DIV');
+
 		const node = document.getElementById("game-score");
 		let fragment, chances, clockString, starNodes, msn, stars, time;
 		clockString = "";

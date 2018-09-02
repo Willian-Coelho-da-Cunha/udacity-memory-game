@@ -205,7 +205,13 @@ let game = {
 	}
 }
 
-/*------CARD------*/
+/**
+* @description This object is responsable for existence of the game.
+* @property {array} cards - The content to be shown when the user clicks on anyone.
+* @property {array} rearrangedCards - Keep the cards at a new layout.
+* @property {array} clickedCards - Keep the card that the user clicks on. Max: two cards.
+* @property {array} matched - When two cards match, they are keeped inside this array. When the array length is 28, the user wins the game.
+*/
 let card = {
 	cards: [
 		{card: "❦", id: 0},
@@ -224,9 +230,11 @@ let card = {
 		{card: "❀", id: 13}],
 	rearrangedCards: [],
 	clickedCards: [],
-	numberOfMatchedCards: 0,
-	matchedCards: 0,
 	matched: [],
+	/**
+	* @description Generate random numbers between 0 and 27 (including the both numbers)
+	* @returns {array} numbers at a new position.
+	*/
 	generateRandomNumbers(){
 		let cards = [];
 		for (let i = 0; i <= 27; i++) {
@@ -240,6 +248,9 @@ let card = {
 		}
 		return cards;
 	},
+	/**
+	* @description With the random numbers, this method rearrange the cards.
+	*/
 	rearrangeCards(){
 		this.rearrangedCards = [];
 		let newLayout = this.generateRandomNumbers();

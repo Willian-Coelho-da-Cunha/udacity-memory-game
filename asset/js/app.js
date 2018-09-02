@@ -62,9 +62,6 @@ function turnCard(event){
 				/*------CLICKED CARDS MATCH?------*/
 		if (card.clickedCards[0].idCard === card.clickedCards[1].idCard) {
 
-			/*------ADD ONE TO MATCHED CARDS------*/
-			card.matchedCards++;
-
 			/*------KEEP THE CARDS------*/
 			card.matched.push(card.clickedCards[0]);
 			card.matched.push(card.clickedCards[1]);
@@ -82,7 +79,7 @@ function turnCard(event){
 			game.click = 0;
 
 			/*------VERIFY IF ALL MATCHS WERE FOUND------*/
-			if (card.matchedCards === 14) {
+			if (card.matched.length === 28) {
 				game.gameOver();
 			}
 		} else {

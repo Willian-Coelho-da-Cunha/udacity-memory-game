@@ -24,14 +24,6 @@ function startGame(){
 * @param {event} event - Characteristics of the event.
 */
 function turnCard(event){
-	/*------INCREASE NUMBER OF CLICKS------*/
-	game.click++;
-
-	/*------PREVENTS THE USER'S THIRD CLICK WHILE A setTimeout FUNCTION DOES NOT END------*/
-	if (game.click > 2) {
-		return;
-	}
-	
 	/*------GETTING THE CURRENT ID------*/
 	let indice = event.target.id;
 
@@ -49,6 +41,14 @@ function turnCard(event){
 		}
 	}
 
+		/*------INCREASE NUMBER OF CLICKS------*/
+	game.click++;
+
+	/*------PREVENTS THE USER'S THIRD CLICK WHILE A setTimeout FUNCTION DOES NOT END------*/
+	if (game.click > 2) {
+		return;
+	}
+	
 	/*------INCREASE THE MOVE COUNTER------*/
 	moveCounter.increaseCounter();
 
@@ -154,8 +154,16 @@ function restartGame(){
 		}
 	}
 
+	/*------FIX A BUG: CLICK ON ONE CARD AND PRESS RESTART GAME BUTTON------*/
+	let cardClicked;
+	cardClicked = document.querySelector(".card-clicked");
+	
+	if (!((cardClicked === undefined) || (cardClicked === null))) {
+		cardClicked.textContent = "Willian";
+		cardClicked.classList.remove("card-clicked");
+	}
+
 	/*------RESET THE CARD PROPERTIES------*/
-	card.matchedCards = 0;
 	card.matched = [];
 	card.clickedCards = [];
 

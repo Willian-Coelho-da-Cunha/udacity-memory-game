@@ -19,17 +19,26 @@ Cascade Style Sheet (CSS).
 Hypertext Markup language (HTML).
 
 ## Logic of the game
-Click on **index.html** file. When the web page loads, a modal appears immediately.
+**index.html** is the main file of the game. This happens, because **index.html** an Graphical User Interface (GUI); 
+very important for the player.
+
+Click on **index.html** file twice. When the web page loads, a modal appears immediately.
+
 * Press **Star game!** button;
+	At this moment, the timer runs, your stars on the star rating are in risks and the move counter is prepared to you.
 * Click on any card;
+	The clicked card shows its content. And the game keep it.
 * Click on another card;
-	* The game does not allow clicking on the same clicked or the corresponding card. So, if you do this, nothing will should happen.
+	At this moment, the game check the cards.
+	The game does not allow clicking on the same clicked or the corresponding card. So, if you do this, nothing will should 
+	happen anymore.
 * If the clicked cards are the same:
-	* You play a game;
-	* The cards leave the game;
+	You play a game; Go ahead! The cards leave the game. No clicked effect was show anymore.
 * If the clicked cards are not the same:
-	* They will should return to the starting position;
+	They will should return to the starting position
 * If you combine all cards: You win the game! Congratulations!!!
+
+You can restart the game at any moment. When you restart it, the timer, star rating and move counter come back to initial state.
 
 ## Executing the code
 This game was executed in the chrome web browser. And, on the emulators along the chrome browser.

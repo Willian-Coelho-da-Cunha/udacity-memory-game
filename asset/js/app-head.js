@@ -111,7 +111,7 @@ let moveCounter = {
 			this.displayCounter++;
 			this.showDisplayCounter();
 		}
-		if ((this.moveCounter === 38) || (this.moveCounter === 58) || (this.moveCounter === 78)) {
+		if ((this.moveCounter === 48) || (this.moveCounter === 58) || (this.moveCounter === 68)) {
 			starRating.removeStar();
 		}
 	},

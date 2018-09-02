@@ -3,6 +3,9 @@ This game was developed during the front-end web development nanodegree of Udaci
 to complete the nanodegree program. And, it works with the most current technologies.
 
 ## Used Technologies
+### Git Bash
+[System control version.](https://git-scm.com/)
+
 ### BootStrap v. 4.1.3
 The game was developed with the BootStrap framework, **version 4.1.3**.
 

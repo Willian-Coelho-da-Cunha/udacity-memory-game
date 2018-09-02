@@ -137,10 +137,19 @@ let moveCounter = {
 	}
 };
 
-/*------GAME SECTION------*/
+/**
+* @description This the object game.
+* @property {integer} play - By default, the user plays the game once. But, if the user wants to play more times, this property 
+*will be know.
+* @property {integer} click - Counts how many clicks the user makes on a card. Avoid showing more than two cards each chance 
+of match.
+*/
 let game = {
 	play: 1,
 	click: 0,
+	/**
+	* @description End of the game.
+	*/
 	gameOver(){
 		timer.timeOff();
 

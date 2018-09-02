@@ -261,6 +261,10 @@ let card = {
 	}
 };
 
+/**
+* @description This function is responsable to create the game arena, when are all cards.
+* Use a 'document fragment' to prevent reflow and new design generation.
+*/
 function gameArena(){
 	const node = document.getElementById("game-arena");
 	let fragment = document.createDocumentFragment();

@@ -2,96 +2,222 @@
 * {
 	font-family: 'Lobster', cursive;
 }
+body {
+	background-color: rgb(76, 4, 51);
+}
+
+/*------MODAL START GAME------*/
+.modalStartGame-header,
+.modalStartGame-footer {
+	border: none;
+}
+.modalStartGame-title {
+	color: #888;
+	font-size: 3rem;
+}
+.modalStartGame-message {
+	color: #808000;
+	font-size: 26px;
+	text-align: center;
+	border: 2px solid #999;
+	border-radius: 12px;
+	margin: 36px;
+	box-shadow: 0px 0px 60px #808000;
+}
+.modalStartGame-buttonStart {
+	padding: 24px;
+	border: none;
+	border-radius: 12px;
+	color: white;
+	font-size: 1.75rem;
+	background-color: #163616;
+	box-shadow: 5px 5px 5px #000;
+	z-index: 10;
+}
+.modalStartGame-buttonStart:hover {
+	background-color: #166616;
+}
+.modalStartGame-buttonStart:focus {
+	outline: none;
+}
 
 /*------HEADER------*/
 header {
-	background: linear-gradient(green, white);
+	padding: 12px;
 }
 header>h1 {
-	color: lightblue;
-	font-size: 2.25em;
+	color: orange;
+	font-size: 3rem;
 }
 header>h2 {
-	font-size: 1.5em;
+	color: lightblue;
+	font-size: 1.5rem;
 }
 
 /*------TIMER, STAR RATING AND MOVE COUNTER------*/
-.controllers {
-	margin-top: 16px;
-	margin-bottom: 16px;
+.controller {
+	max-width: 380px;
+	min-width: 200px;
+	margin: 20px;
+	padding: 12px;
 }
-article>h3 {
-	font-size: 1.25em;
+.controller>h3 {
+	padding:4px;
+	color: white;
+	font-size: 2rem;
+	letter-spacing: 1px;
+}
+.timerGame,
+.moveCounterGame,
+.messageWithoutStars {
+	color: orange;
+	font-size: 1.75rem;
+	letter-spacing: 2px;
+}
+.star {
+	color: orange;
+	font-size: 4rem;
+}
+.messageWithoutStars,
+.star {
+	line-height: 60px;
 }
 
 /*------RESTART THE GAME BUTTON------*/
-.btn-restart {
-	margin: 10px auto;
+.buttonRestart-section {
+	margin: 10px;
 }
-.btn {
-	font-size: 1.5rem;
+.buttonRestart-button {
+	padding: 24px;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	font-size: 2rem;
+	background-color: orange;
+	transition: background-color 0.5s;
+}
+.buttonRestart-button:hover {
+	background-color: red;
+	transition: background-color 1s;
+}
+.buttonRestart-button:focus {
+	outline: none;
+	background-color: green;
+	transition: background-color 1s;
 }
 
 /*------GAME------*/
 #game-arena {
-	border: 6px solid #79bd9a;
-	background-color: #0b486b;
+	padding: 16px;
 }
 
 /*------CARD------*/
-@media only screen and (max-width: 765px) {
-	.card {
-		margin: 2px auto;
-	}
-}
-@media only screen and (min-width: 766px) {
-	.card {
-		margin: 6px;
-	}
-}
-@media only screen and (min-width: 1300px) {
-	.card {
-		transition: all 1s ease;
-	}
-}
 .card {
-	min-width: 140px;
-	max-height: 140px;
-	height: 140px;
-	border-width: 2px 4px 4px 2px;
-	border-style: solid;
-	border-color: white;
-	color: white;
-	font-size: 2em;
+	min-width: 200px;
+	max-width: 260px;
+	min-height: 160px;
+	margin: 12px;
+	border: none;
+	border-radius: 20px;
+	color: rgb(130, 9, 63);
+	font-size: 2.5rem;
 	cursor: pointer;
-	background-color: #302009;
+	background: radial-gradient(white, red);
+	transition: all 1s ease;
 }
 .card-clicked {
 	font-size: 5em;
 	transform: skewX(4deg);
 	transform: skewY(4deg);
-	background-color: #cff09e;
+	background: radial-gradient(white, lightgreen);
+	cursor: default;
 	transition: all 1s ease;
 }
 .card-match {
-	font-size: 5em;
-	color: black;
-	border-color: #cff09e;
-	background: radial-gradient(white 40%, #556921);
+	font-size: 6em;
+	color: white;
+	background: transparent;
+	cursor: default;
 	transition: all 2s ease;
 }
 
 /*------FOOTER------*/
 footer {
-	margin-top: 30px;
-	border-top: 3px solid gray;
-	padding-top: 10px;
-	color: green;
+	margin-top: 32px;
+	border-top: 6px solid orange;
+	padding: 20px;
+	color: lightblue;
+	letter-spacing: 1px;
+}
+footer>h6 {
+	font-size: 1.5rem;
+}
+footer>p {
+	font-size: 1.3rem;
 }
 
-/*------CHANCES (INSIDE THE MODAL) ------*/
-.chances {
-	color: blue;
-	border-bottom: 2px solid gray;
-	margin-top: 10px;
+/*------MODAL GAME OVER------*/
+.modalGameOver-header,
+.modalGameOver-footer {
+	border: none;
+}
+.modalGameOver-title {
+	font-size: 3rem;
+	color: #999;
+	letter-spacing: 1px;
+}
+.modalGameOver-buttonClose,
+.modalGameOver-buttonPlayAgain {
+	margin: 8px;
+	padding: 24px;
+	border: none;
+	border-radius: 8px;
+	color: white;
+	font-size: 2rem;
+	letter-spacing: 1px;
+}
+.modalGameOver-buttonClose {
+	background-color: rgb(165, 35, 6);
+}
+.modalGameOver-buttonPlayAgain {
+	background-color: rgb(3, 109, 12);
+}
+.modalGameOver-buttonClose:focus,
+.modalGameOver-buttonPlayAgain:focus {
+	outline: none;
+}
+.modalGameOver-buttonClose:hover {
+	background-color: rgb(196, 53, 21);
+}
+.modalGameOver-buttonPlayAgain:hover {
+	background-color: rgb(3, 165, 16);
+}
+.containerGameOver {
+	margin: 4px;
+	padding: 8px;
+	border: none;
+	border-radius: 10px;
+	background-color: rgb(130, 9, 63);
+}
+.chanceNumber {
+	padding: 4px;
+	color: orange;
+	font-size: 2rem;
+}
+.timeSpent {
+	padding: 4px;
+	color: white;
+	font-size: 1.25rem;
+	letter-spacing: 1px;
+}
+.performanceMessage {
+	padding: 4px;
+	color: white;
+	font-size: 1.5rem;
+	letter-spacing: 1px;
+}
+.achievedStarRating {
+	padding: 4px;
+	color: orange;
+	font-size: 1.75rem;
 }

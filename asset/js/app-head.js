@@ -67,7 +67,11 @@ let starRating = {
 	* Use a 'document fragment' to prevent reflow and new design generation.
 	*/
 	restartStartRating(){
-		const rating = document.querySelector(".star-rating");
+		const rating = document.querySelector("#star-rating");
+		if(document.querySelector(".messageWithoutStars")){
+			let messageWithoutStars = document.querySelector(".messageWithoutStars");
+			messageWithoutStars.remove();
+		}
 		let star = [];
 		star = document.querySelectorAll(".star");
 		let stars = document.createDocumentFragment();
@@ -87,6 +91,13 @@ let starRating = {
 		let star = [];
 		star = document.querySelectorAll(".star");
 		star[star.length-1].remove();
+		if (star.length === 1){
+			let starRating = document.getElementById("star-rating");
+			let span = document.createElement("span");
+			span.setAttribute("class", "messageWithoutStars");
+			span.textContent = "Without stars!";
+			starRating.appendChild(span);
+		}
 	}
 };
 
@@ -158,28 +169,38 @@ let game = {
 		$(container).off('click', 'DIV');
 
 		const node = document.getElementById("game-score");
-		let fragment, chances, clockString, starNodes, msn, stars, time;
+		let fragment, containers, containerGameOver, chances, clockString, starNodes, msn, stars, time;
 		clockString = "";
 
+		containers = [];
+		if(document.querySelector(".containerGameOver")){
+			containers = document.querySelectorAll(".containerGameOver");
+		}
+		
 		fragment = document.createDocumentFragment();
+		
+		containerGameOver = document.createElement("div");
+		containerGameOver.setAttribute("class", "containerGameOver");
 
 		/*------DISPLAY USER CHANCES OF WIN THE GAME------*/
 		chances = document.createElement("h6");
-		chances.setAttribute("class", "chances");
+		chances.setAttribute("class", "chanceNumber");
 		chances.textContent = "This was your attempt number " + this.play + ".";
-		fragment.appendChild(chances);
+		containerGameOver.appendChild(chances);
 
 		/*------DISPLAY TIMER------*/
 		time = document.createElement("h5");
 			timer.hours < 10 ? clockString += "0" + timer.hours + ":" : clockString += timer.hours + ":";
 			timer.minutes < 10 ? clockString += "0" + timer.minutes + ":" : clockString += timer.minutes + ":";
 			timer.seconds < 10 ? clockString += "0" + timer.seconds : clockString += timer.seconds;
+		time.setAttribute("class", "timeSpent");
 		time.textContent = "Your time is " + clockString;
 
 		/*------DISPLAY MESSAGE TO THE PLAYER------*/
 		starNodes = [];
 		starNodes = document.querySelectorAll(".star");
 		msn = document.createElement("h5");
+		msn.setAttribute("class", "performanceMessage");
 		if (starNodes.length !== 0) {
 			switch(starNodes.length) {
 				case 1:
@@ -194,20 +215,27 @@ let game = {
 			}
 			/*------DISPLAY STARS------*/
 			stars = document.createElement("h2");
-			stars.setAttribute("class", "text-center");
+			stars.setAttribute("class", "text-center achievedStarRating");
 			let qtnStars = "";
 			for (let i = 0; i < starNodes.length; i++) {
 				qtnStars += "&#10023; ";
 			}
 			stars.innerHTML = qtnStars;
-			fragment.appendChild(stars);
+			containerGameOver.appendChild(stars);
 
 		} else {
 			msn.textContent = "Sorry!!! You didn\'t win stars!!!";
 		}
 
-		fragment.appendChild(time);
-		fragment.appendChild(msn);
+		containerGameOver.appendChild(time);
+		containerGameOver.appendChild(msn);
+		
+		containers = [containerGameOver, ...containers];
+		
+		for(let i = 0; i < containers.length; i++){
+			fragment.appendChild(containers[i]);
+		}
+		
 		node.appendChild(fragment);
 
 		$("#gameOver").modal();
@@ -227,7 +255,7 @@ let card = {
 		{card: "❧", id: 1},
 		{card: "☙", id: 2},
 		{card: "❥", id: 3},
-		{card: "❣", id: 4},
+		{card: "✧", id: 4},
 		{card: "➳", id: 5},
 		{card: "💝", id: 6},
 		{card: "💕", id: 7},
@@ -235,7 +263,7 @@ let card = {
 		{card: "🌷", id: 9},
 		{card: "💐", id: 10},
 		{card: "🌺", id: 11},
-		{card: "ꙮ", id: 12},
+		{card: "✯", id: 12},
 		{card: "❀", id: 13}],
 	rearrangedCards: [],
 	clickedCards: [],
@@ -282,7 +310,7 @@ function gameArena(){
 		card = document.createElement("div");
 		card.setAttribute("id", "rr"+i);
 		card.classList.add("col-3", "card", "text-center");
-		card.textContent = "Willian";
+		card.textContent = ".. ? ..";
 		
 		fragment.appendChild(card);
 	}

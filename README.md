@@ -1,19 +1,18 @@
-# Memory game
-This game was developed during the front-end web development nanodegree of Udacity. It is a final project 
-to complete the nanodegree program. And, it works with the most current technologies.
+# Udacity Memory game
+This game was developed during the front-end web development nanodegree of Udacity. It is a final project to complete the nanodegree program.
 
 ## Used Technologies
-### Git Bash
+### Git
 [System control version.](https://git-scm.com/)
 
-### BootStrap v. 4.1.3
-The game was developed with the BootStrap framework, **version 4.1.3**.
+### BootStrap
+BootStrap framework, **version 4.1.3**.
 
 ### JavaScript
-During the development process of this project was used Object-oriented JavaScript. In addition, its documentation was consulted on the [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/) platform (MDN).
+JavaScript (ES6). In addition, some features were consulted on the [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/) platform (MDN).
 
 ### JQuery
-[JQuery](https://jquery.com/) is a fantastic library. It was also used in this project: selecting elements, calling modals and  delegating events.
+[JQuery](https://jquery.com/) . It was also used in this project: selecting elements, calling modals and  delegating events.
 
 ### CSS3
 Cascade Style Sheet (CSS).
@@ -22,66 +21,60 @@ Cascade Style Sheet (CSS).
 Hypertext Markup language (HTML).
 
 ## Logic of the game
-**index.html** is the main file of the game. This happens, because **index.html** an Graphical User Interface (GUI); 
-very important for the player.
+**index.html** is the main file of the project. It is a Graphical User Interface (GUI).
 
 Click on **index.html** file twice. When the web page loads, a modal appears immediately.
 
-* Press **Star game!** button;
+* Press **Star the game!** button;
 
-At this moment, the timer runs, your stars on the star rating are in risks and the move counter is prepared to you.
+Now, the Timer will run; your stars in the Star rating will be in risk; and the Move counter will be prepared to you.
 
 * Click on any card;
 
-The clicked card shows its content. And the game keep it.
+The content of the clicked card will appear. And, the game must keep it.
 
 * Click on another card;
 
-At this moment, the game check the cards.
+The content of the clicked card will appear too. And, the game must keep it for one second.
 
-The game does not allow clicking on the same clicked or the corresponding card. So, if you do this, nothing will should 
-happen anymore.
+The restart button will be disabled during the match verification. (This action solved a problem identified during the version two development.)
 
-* If the clicked cards are the same:
+The game must not allow clicking any card until the end of the match verification.
 
-You play a game; Go ahead! The cards leave the game. No clicked effect was show anymore.
+The game will check the clicked cards.
 
-* If the clicked cards are not the same:
+* If the clicked cards contains the same figure:
 
-They will should return to the starting position
+You will have played the game. Go ahead! The matched cards will leave the game. No click on them must have effects.
 
-* If you combine all cards: You win the game! Congratulations!!!
+* If the clicked cards won't contains the same figure:
 
-You can restart the game at any moment. When you restart it, the timer, star rating and move counter come back to initial state.
+The clicked cards will return to the starting position: their contents will be hidden after one second.
+
+* When you get to combine all cards' figure: You will win the game!
+
+You can restart the game at any time. When you restart it, the Timer, Star rating and Move counter come back to initial state.
 
 ## Executing the code
 This game was executed in the chrome web browser. And, on the emulators for mobile devices along the chrome browser.
 
 ## Validation
 ### Markup Validation Service from W3C
-The code of this project was verified at September 01st, 2018, by Markup Validation Service from W3C.
+The code of this project was verified at December 30th, 2018 by Markup Validation Service from W3C.
+
+#### HTML Validation Service from W3C
 * No error was found.
 * Three warnings about html section without headings.
 
-### CSS Validation Service from W3C
+#### CSS Validation Service from W3C
 At this date, no error messages were displayed.
 
-## Explanation note
-I'm a git starter professional. So:
+## Developer
+* Willian Coelho da Cunha
 
-* Because of the project is not big;
-* Because the time;
-* And, because I was working alone;
+## Contributions
+This project won't accept contributions because it is a test project.
 
-I did the project and after that, following the construction logic that I used, I split the project in small portions 
-and made the commit on the git.
-
-Now, because of Udacity's Nanodegree, I know how to work with git. And, certainly, working as a group or alone, I will 
-use git and become a better professional than today.
-
-The reason for this explanation note is very simple: the time between each commit is very short (especially for a programmer).
-Thank you for understanding.
-
-## Note
-The note above is about this project before Udacity's review. After the review, I worked in the project using the technologies 
-described above and, of course, Git.
+## Last version and review
+Version 2.
+Review in December 30th, 2018.

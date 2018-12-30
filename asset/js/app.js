@@ -1,4 +1,4 @@
-$("#question").modal();
+$("#startGame").modal();
 
 /**
 * @description This function is called in the first time after the page is loaded, when the user clicks on 
@@ -94,6 +94,10 @@ function turnCard(event){
 			}
 		} else {
 			let show;
+			
+			/*------DISABLE RESTART BUTTON------*/
+			document.querySelector(".buttonRestart-button").disabled = true;
+			
 			/*------SHOW CLICKED CARDS WITH SOME TIME AS DELAY------*/
 			show = setTimeout(delayDisplayCard, 1000);
 		}
@@ -104,10 +108,10 @@ function turnCard(event){
  *This function is responsable to prepared the game arena for a new attempt.
  */
 function delayDisplayCard(){
-
+	
 	/*------RESTART STYLE CARD------*/
-	document.querySelector("#" + card.clickedCards[0].idDoc).textContent = "Willian";
-	document.querySelector("#" + card.clickedCards[1].idDoc).textContent = "Willian";
+	document.querySelector("#" + card.clickedCards[0].idDoc).textContent = ".. ? ..";
+	document.querySelector("#" + card.clickedCards[1].idDoc).textContent = ".. ? ..";
 	document.querySelector("#" + card.clickedCards[0].idDoc).classList.remove("card-clicked");
 	document.querySelector("#" + card.clickedCards[1].idDoc).classList.remove("card-clicked");
 
@@ -119,6 +123,9 @@ function delayDisplayCard(){
 
 	/*------END OF TIME OUT------*/
 	clearTimeout(this.show);
+	
+	/*------ENABLE RESTART BUTTON------*/
+	document.querySelector(".buttonRestart-button").disabled = false;
 }
 
 /**
@@ -149,7 +156,7 @@ function restartGame(){
 		}
 		/*------REMOVE CARD-MATCH CLASS------*/
 		for (let i = 0; i < cardMatrix.length; i++) {
-			cardMatrix[i].textContent = "Willian";
+			cardMatrix[i].textContent = ".. ? ..";
 			cardMatrix[i].classList.remove("card-match");
 		}
 	}
@@ -159,7 +166,7 @@ function restartGame(){
 	cardClicked = document.querySelector(".card-clicked");
 	
 	if (!((cardClicked === undefined) || (cardClicked === null))) {
-		cardClicked.textContent = "Willian";
+		cardClicked.textContent = ".. ? ..";
 		cardClicked.classList.remove("card-clicked");
 	}
 

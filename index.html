@@ -22,26 +22,26 @@
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	
 </head>
-<body class="container">
+<body class="container-fluid">
 <!--header-->
-<header class="row">
-	<h1 class="col-12 text-center">Udacity's memory game</h1>
-	<h2 class="col-12 text-center">By Willian Coelho da Cunha</h2>
+<header class="row text-center">
+	<h1 class="col-12">Udacity's memory game</h1>
+	<h2 class="col-12">By Willian Coelho da Cunha</h2>
 </header>
 
 <!--Star rating, timer and move counter-->
-<section class="row controllers">
+<section class="row justify-content-center">
 
 	<!--Timer-->
-	<article class="col-4 text-center">
+	<article class="col-12 col-sm-6 text-center controller">
 		<h3 class="col-12">Timer</h3>
-		<h4 class="col-12"><time class="timer">00:00:00</time></h4>
+		<h4 class="col-12 timerGame"><time class="timer">00:00:00</time></h4>
 	</article>
 	
 	<!--Star rating-->
-	<article class="col-4 text-center">
+	<article class="col-12 col-sm-6 text-center controller">
 		<h3 class="col-12">Star rating</h3>
-		<h4 class="col-12 star-rating">
+		<h4 id="star-rating" class="col-12">
 			<span class="star">&#10023; </span>
 			<span class="star">&#10023; </span>
 			<span class="star">&#10023; </span>
@@ -49,44 +49,42 @@
 	</article>
 	
 		<!--Move counter-->
-	<article class="col-4 text-center">
+	<article class="col-12 col-sm-6 text-center controller">
 		<h3 class="col-12">Move counter</h3>
-		<h4 class="col-12 move-counter">00</h4>
+		<h4 class="col-12 move-counter moveCounterGame">00</h4>
 	</article>
 	
 </section>
 
-<!--Restart the game button-->
-<section class="row btn-restart">
-	<div class="col-12 text-center">
-		<button type="button" class="btn btn-primary" onclick="javascript:restartGame();">Restart the game?</button>
-	</div>
+<!--Game arena-->
+<section id="game-arena" class="row justify-content-center">
+	<script>gameArena();</script>
 </section>
 
-<!--Game arena-->
-<section id="game-arena" class="row justify-content-md-center">
-	<script>gameArena();</script>
+<!--Restart the game button-->
+<section class="row justify-content-center buttonRestart-section">
+	<button type="button" class="buttonRestart-button" onclick="javascript:restartGame();">Restart the game?</button>
 </section>
 
 <!--Footer-->
 <footer class="row">
 	<h6 class="col-12 text-center">Developed by Willian Coelho da Cunha</h6>
-	<p class="col-12 load text-center">Udacity | Nanodegree Desenvolvimento web front-end (<time>2018</time>)</p>
+	<p class="col-12 text-center">Udacity | Nanodegree Desenvolvimento web front-end (<time>2018</time>)</p>
 </footer>
 
 <!--Modal-->
 <!--Start the game-->
-<section class="modal fade" id="question">
+<section class="modal fade" id="startGame">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Start the game?</h5>
+			<div class="modal-header modalStartGame-header">
+				<h5 class="modal-title modalStartGame-title">Start the game?</h5>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body modalStartGame-message">
 				Press the button below to start the game.
 			</div>
-			<div class="modal-footer">
-				<button type="button" id="btn-start" class="btn btn-primary" data-dismiss="modal" onClick="javascript:startGame();">Start the game</button>
+			<div class="modal-footer modalStartGame-footer">
+				<button type="button" id="btn-start" class="modalStartGame-buttonStart" data-dismiss="modal" onClick="javascript:startGame();">Start the game!</button>
 			</div>
 		</div>
 	</div>
@@ -97,13 +95,13 @@
 <section class="modal fade" id="gameOver">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Congratulations!!!</h5>
+			<div class="modal-header modalGameOver-header">
+				<h5 class="modal-title modalGameOver-title">Congratulations!!!</h5>
 			</div>
 			<div id="game-score" class="modal-body"></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal" onClick="javascript:restartGame();">Play again</button>
+			<div class="modal-footer modalGameOver-footer">
+				<button type="button" class="modalGameOver-buttonClose" data-dismiss="modal">Close</button>
+				<button type="button" class="modalGameOver-buttonPlayAgain" data-dismiss="modal" onClick="javascript:restartGame();">Play again</button>
 			</div>
 		</div>
 	</div>

@@ -25,10 +25,9 @@ body {
 	color: #808000;
 	font-size: 26px;
 	text-align: center;
-	border: 2px solid #999;
 	border-radius: 12px;
 	margin: 36px;
-	box-shadow: 0px 0px 60px #808000;
+	box-shadow: inset 0px 0px 60px #808000;
 }
 .modalStartGame-buttonStart {
 	padding: 24px;
@@ -39,9 +38,12 @@ body {
 	background-color: #163616;
 	box-shadow: 5px 5px 5px #000;
 	z-index: 10;
+	cursor: pointer;
+	transition: background-color ease-in-out 0.5s;
 }
 .modalStartGame-buttonStart:hover {
 	background-color: #166616;
+	transition: all ease-in-out 0.5s;
 }
 .modalStartGame-buttonStart:focus {
 	outline: none;
@@ -97,19 +99,18 @@ header>h2 {
 	padding: 24px;
 	border: none;
 	border-radius: 8px;
-	color: white;
+	color: #808000;
 	font-size: 2rem;
-	background-color: orange;
-	transition: background-color 0.5s;
+	cursor: pointer;
+	background-color: lightgray;
+	transition: all ease-in-out 0.5s;
 }
 .buttonRestart-button:hover {
-	background-color: red;
-	transition: background-color 1s;
+	box-shadow: inset 0px 0px 64px 0px #808000;
+	transition: all ease-in-out 0.5s;
 }
 .buttonRestart-button:focus {
 	outline: none;
-	background-color: green;
-	transition: background-color 1s;
 }
 
 /*------GAME------*/
@@ -131,6 +132,9 @@ header>h2 {
 	background: radial-gradient(white, red);
 	transition: all 1s ease;
 }
+.card:hover {
+	box-shadow: inset 0px 0px 32px 0px yellow;
+}
 .card-clicked {
 	font-size: 5em;
 	transform: skewX(4deg);
@@ -139,6 +143,9 @@ header>h2 {
 	cursor: default;
 	transition: all 1s ease;
 }
+.card-clicked:hover {
+	box-shadow: none;
+}
 .card-match {
 	font-size: 6em;
 	color: white;
@@ -146,11 +153,13 @@ header>h2 {
 	cursor: default;
 	transition: all 2s ease;
 }
+.card-match:hover {
+	box-shadow: none;
+}
 
 /*------FOOTER------*/
 footer {
 	margin-top: 32px;
-	border-top: 6px solid orange;
 	padding: 20px;
 	color: lightblue;
 	letter-spacing: 1px;
@@ -181,6 +190,8 @@ footer>p {
 	color: white;
 	font-size: 2rem;
 	letter-spacing: 1px;
+	cursor: pointer;
+	transition: background-color ease-in-out 0.5s;
 }
 .modalGameOver-buttonClose {
 	background-color: rgb(165, 35, 6);
@@ -194,36 +205,60 @@ footer>p {
 }
 .modalGameOver-buttonClose:hover {
 	background-color: rgb(196, 53, 21);
+	transition: all ease-in-out 0.5s;
 }
 .modalGameOver-buttonPlayAgain:hover {
 	background-color: rgb(3, 165, 16);
+	transition: all ease-in-out 0.5s;
 }
 .containerGameOver {
 	margin: 4px;
 	padding: 8px;
 	border: none;
 	border-radius: 10px;
-	background-color: rgb(130, 9, 63);
+	/*background-color: rgb(130, 9, 63);*/
+	box-shadow: inset 0px 0px 32px #808000;
 }
 .chanceNumber {
 	padding: 4px;
-	color: orange;
+	color: #808000;
 	font-size: 2rem;
 }
 .timeSpent {
 	padding: 4px;
-	color: white;
+	color: gray;
 	font-size: 1.25rem;
 	letter-spacing: 1px;
 }
 .performanceMessage {
 	padding: 4px;
-	color: white;
+	color: gray;
 	font-size: 1.5rem;
 	letter-spacing: 1px;
 }
 .achievedStarRating {
 	padding: 4px;
-	color: orange;
+	color: #808000;
 	font-size: 1.75rem;
+}
+
+/* Scroll bar style */
+/* width */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	display: none;
 }

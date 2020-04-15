@@ -4,16 +4,17 @@
 		<meta charset="utf-8" />
 		<title>Memory game</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-		<meta name="description" content="This game is a Memory game. It has been developing for Udacity's Nanodegree: Front-end web development (2018)." />
+		<meta
+			name="description"
+			content="This web page contains a memory game. This memory game was developed at the end of the Udacity's 
+				Nanodegree: Nanodegree Front End Web Development. My name is Willian Coelho da Cunha. I did the Nanodegree 
+				and I developed this game in September, 2018. And, after this, I have been improving the game. Feel free to 
+				play it. And, thanks for being here." />
 		<meta name="author" content="Willian Coelho da Cunha" />
 
-		<!--Bootstrap v.4.1.3-->
-		<!--css-->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-
-		<!--Own style-->
 		<!--css-->
 		<link rel="stylesheet" href="asset/css/app.css" />
+
 		<!--js-->
 		<script src="asset/js/app-head.js"></script>
 
@@ -21,97 +22,106 @@
 		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
 	</head>
 
-	<body class="container-fluid">
+	<body>
 		<!--header-->
-		<header class="row text-center">
-			<h1 class="col-12">Udacity's memory game</h1>
-			<h2 class="col-12">By Willian Coelho da Cunha</h2>
+		<header>
+			<h1>Memory game</h1>
 		</header>
 
 		<!--Star rating, timer and move counter-->
-		<section class="row justify-content-center">
+		<section class="indicator">
 
 			<!--Timer-->
-			<article class="col-12 col-sm-6 text-center controller">
-				<h3 class="col-12">Timer</h3>
-				<h4 class="col-12 timerGame"><time class="timer">00:00:00</time></h4>
-			</article>
+			<section class="indicator__timer">
+				<h3 class="indicator__timer__title">Timer</h3>
+				<h4 class="indicator__timer__timer"><time class="timer">00:00:00</time></h4>
+			</section>
 
 			<!--Star rating-->
-			<article class="col-12 col-sm-6 text-center controller">
-				<h3 class="col-12">Star rating</h3>
-				<h4 id="star-rating" class="col-12">
-					<span class="star">&#10023; </span>
-					<span class="star">&#10023; </span>
-					<span class="star">&#10023; </span>
-					</h4>
-			</article>
+			<section class="indicator__star-rating">
+				<h3 class="indicator__star-rating__title">Star rating</h3>
+				<h4 id="star-rating" class="indicator__star-rating__star-rating">
+					<span class="star">&#10023;</span>
+					<span class="star">&#10023;</span>
+					<span class="star">&#10023;</span>
+				</h4>
+			</section>
 
 			<!--Move counter-->
-			<article class="col-12 col-sm-6 text-center controller">
-				<h3 class="col-12">Move counter</h3>
-				<h4 class="col-12 move-counter moveCounterGame">00</h4>
-			</article>
+			<section class="indicator__move-counter">
+				<h3 class="indicator__move-counter__title">Move counter</h3>
+				<h4 class="move-counter indicator__move-counter__move-counter">00</h4>
+			</section>
 		</section>
 
 		<!--Game arena-->
-		<section id="game-arena" class="row justify-content-center">
+		<section id="game-arena" class="game-arena">
 			<script>gameArena();</script>
 		</section>
 
-		<!--Restart the game button-->
-		<section class="row justify-content-center buttonRestart-section">
-			<button type="button" class="buttonRestart-button" onclick="javascript:restartGame();">Restart the game?</button>
+		<!--Button restart the game-->
+		<section class="container-button-restart-the-game">
+			<button
+				type="button"
+				class="container-button-restart-the-game__button-restart-the-game"
+				onclick="javascript:restartGame();">
+					Restart the game?
+			</button>
 		</section>
 
 		<!--Footer-->
-		<footer class="row">
-			<h6 class="col-12 text-center">Developed by Willian Coelho da Cunha</h6>
-			<p class="col-12 text-center">Udacity | Nanodegree Desenvolvimento web front-end (<time>2018</time>)</p>
+		<footer>
+			<h6>Developed by Willian Coelho da Cunha</h6>
+			<p>Udacity | Nanodegree Desenvolvimento web front-end (<time>2020</time>)</p>
 		</footer>
 
 		<!--Modal-->
 		<!--Start the game-->
-		<section class="modal fade" id="startGame">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header modalStartGame-header">
-						<h5 class="modal-title modalStartGame-title">Start the game?</h5>
-					</div>
-					<div class="modal-body modalStartGame-message">
-						Press the button below to start the game.
-					</div>
-					<div class="modal-footer modalStartGame-footer">
-						<button type="button" id="btn-start" class="modalStartGame-buttonStart" data-dismiss="modal" onClick="javascript:startGame();">Start the game!</button>
-					</div>
-				</div>
-			</div>
+		<section class="modal modal--closed" id="start-game" role="document">
+			<section class="modal__content">
+				<h5 class="modal__content__title">Start the game?</h5>
+
+				<p class="modal__content__body">
+					Press the button below to start the game.
+				</p>
+
+				<section class="modal__content__action">
+					<button
+						type="button"
+						class="modal__content__action__button--start-the-game"
+						onClick="javascript:startGame();">
+							Start the game?
+					</button>
+				</section>
+			</section>
 		</section>
 
 		<!--Modal-->
 		<!--Congratulate the winner-->
-		<section class="modal fade" id="gameOver">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header modalGameOver-header">
-						<h5 class="modal-title modalGameOver-title">Congratulations!!!</h5>
-					</div>
-					<div id="game-score" class="modal-body"></div>
-					<div class="modal-footer modalGameOver-footer">
-						<button type="button" class="modalGameOver-buttonClose" data-dismiss="modal">Close</button>
-						<button type="button" class="modalGameOver-buttonPlayAgain" data-dismiss="modal" onClick="javascript:restartGame();">Play again</button>
-					</div>
-				</div>
-			</div>
+		<section class="modal modal--closed" id="game-over" role="document">
+			<section class="modal__content">
+				<h5 class="modal__content__title">Congratulations!!!</h5>
+
+				<section id="game-score"></section>
+
+				<section class="modal__content__action">
+					<button
+						type="button"
+						class="modal__content__action__button--close"
+						onClick="javascript:closeGameOverModal();">
+							Close
+					</button>
+
+					<button
+						type="button"
+						class="modal__content__action__button--play-again"
+						onClick="javascript:restartGameFromGameOverModal();">
+							Play again?
+					</button>
+				</section>
+			</section>
 		</section>
 
-		<!--Bootstrap v.4.1.3-->
-		<!--js files-->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-		<!--Own style-->
 		<!--js-->
 		<script src="asset/js/app.js"></script>
 	</body>

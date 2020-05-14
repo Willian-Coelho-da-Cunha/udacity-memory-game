@@ -1,24 +1,18 @@
-# Udacity Memory game
+# Udacity memory game
 
 This game was developed during the front-end web development nanodegree of Udacity. It is a final project to complete the nanodegree program.
 
-## Used Technologies
+## Used technologies
 
-### Git
+Technology        | Description
+---               | ---
+Git               | [System control version.](https://git-scm.com/)
 
-[System control version.](https://git-scm.com/)
+Javascript (ES6)  | Javascript (ES6). In addition, some features were consulted on the [Mozilla developer network (MDN)](https://developer.mozilla.org/pt-BR/) platform.
 
-### JavaScript
+CSS3              | Cascade style sheet (CSS).
 
-JavaScript (ES6). In addition, some features were consulted on the [Mozilla Developer Network](https://developer.mozilla.org/pt-BR/) platform (MDN).
-
-### CSS3
-
-Cascade Style Sheet (CSS).
-
-### HTML5
-
-Hypertext Markup language (HTML).
+HTML5             | Hypertext Markup language (HTML).
 
 ## Logic of the game
 

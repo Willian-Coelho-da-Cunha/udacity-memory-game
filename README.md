@@ -7,12 +7,9 @@ This game was developed during the front-end web development nanodegree of Udaci
 Technology        | Description
 ---               | ---
 Git               | [System control version.](https://git-scm.com/)
-
-Javascript (ES6)  | Javascript (ES6). In addition, some features were consulted on the [Mozilla developer network (MDN)](https://developer.mozilla.org/pt-BR/) platform.
-
 CSS3              | Cascade style sheet (CSS).
-
 HTML5             | Hypertext Markup language (HTML).
+Javascript (ES6)  | Javascript (ES6). In addition, some features were consulted on the [Mozilla developer network (MDN)](https://developer.mozilla.org/pt-BR/) platform.
 
 ## Logic of the game
 

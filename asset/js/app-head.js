@@ -245,7 +245,7 @@ let game = {
 		}
 
 		node.appendChild(fragment);
-		document.getElementById('game-over').classList.replace('modal--closed', 'modal--opened');
+		document.getElementById('game-over').classList.replace('modal--closed', 'modal--opennig');
 	}
 }
 

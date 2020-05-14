@@ -355,17 +355,21 @@ footer > p {
 	background-color: rgba(0, 0, 0, 0.85);
 }
 
-.modal--opened {
-	animation: fadeinout__modal--opened 1s linear forwards;
-	-webkit-animation: fadeinout__modal--opened 1s linear forwards;
+.modal--opennig {
+	animation: fadeinout__modal--opennig 1s linear forwards;
+	-webkit-animation: fadeinout__modal--opennig 1s linear forwards;
+}
+
+.modal--closing {
+	animation: fadeinout__modal--closing 1s linear forwards;
+	-webkit-animation: fadeinout__modal--closing 1s linear forwards;
 }
 
 .modal--closed {
-	animation: fadeinout__modal--closed 1s linear forwards;
-	-webkit-animation: fadeinout__modal--closed 1s linear forwards;
+	display: none;
 }
 
-@keyframes fadeinout__modal--opened {
+@keyframes fadeinout__modal--opennig {
 	0% {
 		opacity: 0;
 	}
@@ -376,7 +380,7 @@ footer > p {
 	}
 }
 
-@-webkit-keyframes fadeinout__modal--opened {
+@-webkit-keyframes fadeinout__modal--opennig {
 	0% {
 		opacity: 0;
 	}
@@ -387,7 +391,7 @@ footer > p {
 	}
 }
 
-@keyframes fadeinout__modal--closed {
+@keyframes fadeinout__modal--closing {
 	0% {
 		opacity: 1;
 	}
@@ -398,7 +402,7 @@ footer > p {
 	}
 }
 
-@-webkit-keyframes fadeinout__modal--closed {
+@-webkit-keyframes fadeinout__modal--closing {
 	0% {
 		opacity: 1;
 	}

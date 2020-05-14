@@ -1,4 +1,5 @@
-document.getElementById('start-game').classList.replace('modal--closed', 'modal--opened');
+document.getElementById('start-game').classList.remove(['modal--closed']);
+document.getElementById('start-game').classList.add(['modal--opennig']);
 
 /**
 * @description This function is called in the first time after the page is loaded, when the user clicks on 
@@ -9,7 +10,13 @@ function startGame() {
 	/**
 	 * @description Close 'start-game' modal.
 	*/
-	document.getElementById('start-game').classList.replace('modal--opened', 'modal--closed');
+	let timeOut = null;
+
+	document.getElementById('start-game').classList.replace('modal--opennig', 'modal--closing');
+	timeOut = setTimeout(() => {
+		clearTimeout(timeOut);
+		document.getElementById('start-game').classList.replace('modal--closing', 'modal--closed');
+	}, 1000);
 
 	/*------DISTRIBUTING CARDS------*/
 	card.rearrangeCards();
@@ -220,5 +227,11 @@ function restartGameFromGameOverModal() {
 }
 
 function closeGameOverModal() {
-	document.getElementById('game-over').classList.replace('modal--opened', 'modal--closed');
+	let timeOut = null;
+
+	document.getElementById('game-over').classList.replace('modal--opennig', 'modal--closing');
+	timeOut = setTimeout(() => {
+		clearTimeout(timeOut);
+		document.getElementById('game-over').classList.replace('modal--closing', 'modal--closed');
+	}, 1000);
 }

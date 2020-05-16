@@ -7,7 +7,7 @@ body {
 	border: none;
 	padding: 0px;
 	display: block;
-	font-family: 'Lobster', cursive;
+	font-family: cursive, serif;
 	background-color: rgb(76, 4, 51);
 	user-select: none;
 	-ms-user-select: none;

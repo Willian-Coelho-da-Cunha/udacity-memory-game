@@ -80,5 +80,6 @@ This project won't accept contributions because it is a test project.
 
 *Version 3. Review in April and in May, 2020.*
 
-- Remove Bootstrap of the project.
-- Remove Jquery of the project.
+- Remove Bootstrap of this project.
+- Remove Jquery of this project.
+- Remove Google fonts of this project.

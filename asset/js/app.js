@@ -12,10 +12,12 @@ function startGame() {
 	*/
 	let timeOut = null;
 
+	document.getElementsByClassName('modal__content__action__button--start-the-game')[0].setAttribute('disabled', 'true');
 	document.getElementById('start-game').classList.replace('modal--opennig', 'modal--closing');
 	timeOut = setTimeout(() => {
 		clearTimeout(timeOut);
 		document.getElementById('start-game').classList.replace('modal--closing', 'modal--closed');
+		document.getElementsByClassName('modal__content__action__button--start-the-game')[0].removeAttribute('disabled');
 	}, 1000);
 
 	/*------DISTRIBUTING CARDS------*/
@@ -229,9 +231,13 @@ function restartGameFromGameOverModal() {
 function closeGameOverModal() {
 	let timeOut = null;
 
+	document.getElementsByClassName('modal__content__action__button--close')[0].setAttribute('disabled', 'true');
+	document.getElementsByClassName('modal__content__action__button--play-again')[0].setAttribute('disabled', 'true');
 	document.getElementById('game-over').classList.replace('modal--opennig', 'modal--closing');
 	timeOut = setTimeout(() => {
 		clearTimeout(timeOut);
 		document.getElementById('game-over').classList.replace('modal--closing', 'modal--closed');
+		document.getElementsByClassName('modal__content__action__button--close')[0].removeAttribute('disabled');
+		document.getElementsByClassName('modal__content__action__button--play-again')[0].removeAttribute('disabled');
 	}, 1000);
 }

@@ -1,42 +1,54 @@
 /**
-* @description Time controller.
-* @property { integer } hours Represents the number of hours.
-* @property { integer } minutes Represents the number of minutes.
-* @property { integer } seconds Represents the number of seconds.
-* @property { string } time This property receives the setTimeout method.
+* @description
+* Time controller.
+* @property { integer } hours
+* Represents the hours.
+* @property { integer } minutes
+* Represents the minutes.
+* @property { integer } seconds
+* Represents the seconds.
+* @property { integer } timeOutStorage
+* Storage setTimeout.
 */
-
-let timer = {
+const timer = {
+	time: '',
 	hours: 0,
 	minutes: 0,
 	seconds: 0,
-	time: '',
+	timeOutStorage: 0,
 
-	/**@description Start counting the time.*/
-	timeOn() {
-		this.time = setTimeout(add, 983);
+	/**
+	 * Start counting the time.
+	 */
+	timerOn: () => {
+		timer.timeOutStorage = setTimeout(updateTimer, 983);
 	},
 
-	/**@description Stop counting the time.*/
-	timeOff() {
-		if (this.time) {
-			clearTimeout(this.time);
+	/**
+	 * Stop counting the time.
+	 */
+	timerOff: () => {
+		if (timer.timeOutStorage) {
+			clearTimeout(timer.timeOutStorage);
 		}
 	},
 
-	/**@description Restart the timer when the user restarts the game.*/
-	restartTimer() {
-		this.hours = 0;
-		this.minutes = 0;
-		this.seconds = 0;
+	/**
+	 * Restart the timer when the user restarts the game.
+	 */
+	restartTimer: () => {
+		timer.hours = 0;
+		timer.minutes = 0;
+		timer.seconds = 0;
 		document.querySelector('.timer').textContent = '00:00:00';
 	}
 };
 
-/**@description This function is responsable to encreasing and displaying the current timer to the user.*/
-function add() {
-	let clockString = '';
-	
+/**@description
+ * This function is responsable to encreasing and displaying the current timer to the user.
+ */
+function updateTimer() {
+	timer.time = '';
 	timer.seconds++;
 
 	if (timer.seconds > 59) {
@@ -48,44 +60,47 @@ function add() {
 			timer.hours++;
 		}
 	}
-	timer.hours < 10 ? clockString += '0' + timer.hours + ':' : clockString += timer.hours + ':';
-	timer.minutes < 10 ? clockString += '0' + timer.minutes + ':' : clockString += timer.minutes + ':';
-	timer.seconds < 10 ? clockString += '0' + timer.seconds : clockString += timer.seconds;
+
+	timer.time += timer.hours < 10 ? `0${timer.hours}:` : `${timer.hours}:`;
+	timer.time += timer.minutes < 10 ? `0${timer.minutes}:` : `${timer.minutes}:`;
+	timer.time += timer.seconds < 10 ? `0${timer.seconds}` : `${timer.seconds}`;
 	
-	document.querySelector('.timer').textContent = clockString;
-	timer.timeOn();
-}
+	document.querySelector('.timer').textContent = timer.time;
+	timer.timerOn();
+};
 
 /**
-* @description This object has two methods. They are responsable to setting and displaying a star rating to the user as a 
-* way to show his or her respective performance in the game.
+* @description
+* This object has two methods. They are responsable to setting and displaying a star rating 
+* to the user as a way to show his or her respective performance in the game.
 */
-
-let starRating = {
+const starRating = {
 	messageNoStars: null,
 
 	/**
-	* @description Restart the star rating when the user restarts the game. Use a 'document fragment' to prevent reflow and 
-	* new design generation.
+	* Restart the star rating when the user restarts the game. Use a 'document fragment' 
+	* to prevent reflow and new design generation.
 	*/
-	restartStartRating() {
-		let starRating = document.createDocumentFragment();
+	restartStartRating: () => {
+		let _starRating = document.createDocumentFragment();
 		let stars = document.querySelectorAll('.star');
+		let star = null;
 
 		for (let i = stars.length; i < 3; i++) {
-			let span = document.createElement('span');
-			span.setAttribute('class', 'star');
-			span.innerHTML = '&#10023; ';
-			starRating.appendChild(span);
+			star = document.createElement('span');
+			star.setAttribute('class', 'star');
+			star.innerHTML = '&#10023; ';
+			_starRating.appendChild(star);
+			star = null;
 		}
 
 		if (document.querySelector('.indicators__star-rating__star-rating--without-stars')) {
 			document.querySelector('.indicators__star-rating__star-rating--without-stars')
-				.removeChild(this.messageNoStars)
+				.removeChild(starRating.messageNoStars)
 			;
 
 			document.querySelector('.indicators__star-rating__star-rating--without-stars')
-				.appendChild(starRating)
+				.appendChild(_starRating)
 			;
 
 			document.querySelector('.indicators__star-rating__star-rating--without-stars')
@@ -96,26 +111,26 @@ let starRating = {
 				)
 			;
 
-			this.messageNoStars = null;
+			starRating.messageNoStars = null;
 
 		} else if (document.querySelector('.indicators__star-rating__star-rating--with-stars')) {
 			document.querySelector('.indicators__star-rating__star-rating--with-stars')
-				.appendChild(starRating)
+				.appendChild(_starRating)
 			;
 		}
 	},
 
 	/**
-	* @description When a specific number of moves occur, this function is called to remove a star from the user's rating 
-	* star.
+	* When a specific number of moves occur, this function is called to remove a star from 
+	* the user's rating star.
 	*/
-	removeStar() {
+	removeStar: () => {
 		let stars = document.querySelectorAll('.star');
 		stars[stars.length - 1].remove();
 
 		if (stars.length === 1) {
-			this.messageNoStars = document.createElement('span');
-			this.messageNoStars.textContent = 'Without stars!';
+			starRating.messageNoStars = document.createElement('span');
+			starRating.messageNoStars.textContent = 'Without stars!';
 
 			document.querySelector('.indicators__star-rating__star-rating--with-stars')
 				.classList
@@ -126,250 +141,292 @@ let starRating = {
 			;
 	
 			document.querySelector('.indicators__star-rating__star-rating--without-stars')
-				.appendChild(this.messageNoStars)
+				.appendChild(starRating.messageNoStars)
 			;
 		}
 	}
 };
 
 /**
-* @description Capture the number of clicks made by the user.
-*
-* @property { integer } moveCounter This property is responsable for capturing the clicks made by the user. The value of 
+* @description
+* Capture the number of clicks made by the user.
+* @property { integer } moveCounter
+* This property is responsable for capturing the clicks made by the user. The value of 
 * 'moveCounter' property is not shown to the user.
-*
-* @property { integer } displayCounter One match occurs when two cards are equal. Therefore, two clicks are required to 
-* display the cards at a time. For this reason, the 'displayCounter' is increased once every two right clicks. Right 
-* clicks is the same as valid click. The value of 'displayCounter' property is shown to the user.
+* @property { integer } displayCounter
+* One match occurs when two cards are equal. Therefore, two clicks are required to display 
+* the cards at a time. For this reason, the 'displayCounter' is increased once every two 
+* right clicks. Right clicks is the same as valid click. The value of 'displayCounter' 
+* property is shown to the user.
 */
-let moveCounter = {
+const moveCounter = {
 	moveCounter: 0,
 	displayCounter: 0,
 
 	/**
-	* @description Capture the valid click. If divisible by two, increase the value of 'displayCounter' property. And, it 
-	* is responsable for determining when a star will be removed from user's star rating.
+	* Capture the valid click. If divisible by two, increase the value of 'displayCounter' 
+	* property. And, it is responsable for determining when a star will be removed from 
+	* user's star rating.
 	*/
-	increaseCounter() {
-		this.moveCounter++;
+	increaseCounter: () => {
+		moveCounter.moveCounter++;
 
-		if ((this.moveCounter % 2) === 0) {
-			this.displayCounter++;
-			this.showDisplayCounter();
+		if ((moveCounter.moveCounter % 2) === 0) {
+			moveCounter.displayCounter++;
+			moveCounter.showDisplayCounter();
 		}
 
-		if ((this.moveCounter === 48) || (this.moveCounter === 58) || (this.moveCounter === 68)) {
+		if (
+			moveCounter.moveCounter === 48 ||
+			moveCounter.moveCounter === 58 ||
+			moveCounter.moveCounter === 68
+			) {
 			starRating.removeStar();
 		}
 	},
 
 	/**
-	* @description This method is called by 'increaseCounter' method when the game needs to change the value of 'Move 
-	* counter' on the Graphical User Interface.
+	* This method is called by 'increaseCounter' method when the game needs to change 
+	* the value of 'Move counter' on the Graphical User Interface.
 	*/
-	showDisplayCounter() {
-		if (this.displayCounter <= 9) {
+	showDisplayCounter: () => {
+		if (moveCounter.displayCounter <= 9) {
 			document.querySelector('.indicators__move-counter__move-counter')
-				.textContent = `0${String(this.displayCounter)}`
+				.textContent = `0${moveCounter.displayCounter}`
 			;
 
 		} else {
 			document.querySelector('.indicators__move-counter__move-counter')
-				.textContent = `${String(this.displayCounter)}`
+				.textContent = `${moveCounter.displayCounter}`
 			;
 		}
 	},
 
-	/**@description This method is responsable for restarting the 'moveCounter' parameters.*/
-	restartCounter() {
-		this.moveCounter = 0;
-		this.displayCounter = 0;
-		document.querySelector(".indicators__move-counter__move-counter")
+	/**
+	 * This method is responsable for restarting the 'moveCounter' parameters.
+	 */
+	restartCounter: () => {
+		moveCounter.moveCounter = 0;
+		moveCounter.displayCounter = 0;
+		document.querySelector('.indicators__move-counter__move-counter')
 			.textContent = '00'
 		;
 	}
 };
 
 /**
-* @description This the object game.
-*
-* @property { integer } play By default, the user plays the game once. But, if the user wants to play more times, this 
-* property will be know.
-*
-* @property { integer } click - Counts how many clicks the user makes on a card. Avoid showing more than two cards each 
+* @description
+* This the object game.
+* @property { integer } play
+* By default, the user plays the game once. But, if the user wants to play more times, 
+* this property will be know.
+* @property { integer } click
+* Counts how many clicks the user makes on a card. Avoid showing more than two cards each 
 * chance of match.
 */
-
-let game = {
+const game = {
 	play: 1,
 	click: 0,
 
-	/**@description End of the game.*/
-	gameOver() {
+	/**
+	 * End of the game.
+	 */
+	gameOver: () => {
 		const node = document.getElementById('game-score');
-		let containerGameOver, chances, msn, stars, time;
+		let attempt, chance, message, stars, time;
 
-		let clockString = '';
 		let containers = [];
-		let starNodes = [];
+		let starRating = [];
 		let fragment = document.createDocumentFragment();
 
-		timer.timeOff();
+		timer.timerOff();
 
-		if (document.querySelector('.containerGameOver')) {
-			containers = document.querySelectorAll('.containerGameOver');
+		if (document.querySelector('.game-over__attempt')) {
+			containers = document.querySelectorAll('.game-over__attempt');
 		}
 
-		containerGameOver = document.createElement('div');
-		containerGameOver.setAttribute('class', 'containerGameOver');
+		attempt = document.createElement('div');
+		attempt.setAttribute('class', 'game-over__attempt');
 
-		/*------DISPLAY USER CHANCES OF WIN THE GAME------*/
-		chances = document.createElement('h6');
-		chances.setAttribute('class', 'chanceNumber');
-		chances.textContent = `This was your attempt number ${String(this.play)}.`;
-		containerGameOver.appendChild(chances);
+		/**
+		 * Show the attempts of the user.
+		 */
+		chance = document.createElement('h6');
+		chance.setAttribute('class', 'game-over__attempt__title');
+		chance.textContent = `This was your attempt number ${game.play}.`;
+		attempt.appendChild(chance);
 
-		/*------DISPLAY TIMER------*/
+		/**
+		 * Show the spent time.
+		 */
 		time = document.createElement('h5');
-			timer.hours < 10 ? clockString += '0' + timer.hours + ':' : clockString += timer.hours + ':';
-			timer.minutes < 10 ? clockString += '0' + timer.minutes + ':' : clockString += timer.minutes + ':';
-			timer.seconds < 10 ? clockString += '0' + timer.seconds : clockString += timer.seconds;
-		time.setAttribute('class', 'timeSpent');
-		time.textContent = `Your time is ${String(clockString)}`;
+		time.setAttribute('class', 'game-over__attempt__spent-time');
+		time.textContent = `Your time is ${timer.time}`;
 
-		/*------DISPLAY MESSAGE TO THE PLAYER------*/
-		starNodes = document.querySelectorAll('.star');
-		msn = document.createElement('h5');
-		msn.setAttribute('class', 'performanceMessage');
+		/**
+		 * Show a message to the user.
+		 */
+		starRating = document.querySelectorAll('.star');
 
-		if (starNodes.length !== 0) {
-			let qtnStars = '';
+		message = document.createElement('h5');
+		message.setAttribute('class', 'game-over__attempt__message');
 
-			switch(starNodes.length) {
+		if (starRating.length !== 0) {
+			let achievedStars = '';
+
+			switch(starRating.length) {
 				case 1:
-					msn.textContent = `Don't give up!!! You already won a star!`;
+					message.textContent = `Don't give up!!! You already won a star!`;
 					break;
+
 				case 2:
-					msn.textContent = `Wow!!! Almost there! You won two stars!`;
+					message.textContent = `Wow!!! Almost there! You won two stars!`;
 					break;
+
 				case 3:
-					msn.textContent = `Congratulations!!! Your memory and you are incredibles. You are three stars!`;
+					message.textContent = `Congratulations!!! Your memory and you are incredibles. You won three stars!`;
 					break;
+				
+				default:
+					message.textContent = `Congratulations!!!`;
 			}
 
-			/*------DISPLAY STARS------*/
+			/**
+			 * Show the stars to the user.
+			 */
 			stars = document.createElement('h2');
-			stars.setAttribute('class', 'achievedStarRating');
+			stars.setAttribute('class', 'game-over__attempt__star-rating');
 
-			for (let i = 0; i < starNodes.length; i++) {
-				qtnStars += '&#10023; ';
+			for (let i = 0; i < starRating.length; i++) {
+				achievedStars += '&#10023; ';
 			}
 
-			stars.innerHTML = qtnStars;
-			containerGameOver.appendChild(stars);
+			stars.innerHTML = achievedStars;
+			attempt.appendChild(stars);
 
 		} else {
-			msn.textContent = `Sorry!!! You didn't win stars!!!`;
+			message.textContent = `Sorry!!! You didn't win stars!!!`;
 		}
 
-		containerGameOver.appendChild(time);
-		containerGameOver.appendChild(msn);
+		attempt.appendChild(time);
+		attempt.appendChild(message);
 
-		containers = [containerGameOver, ...containers];
+		containers = [attempt, ...containers];
 
 		for(let i = 0; i < containers.length; i++){
 			fragment.appendChild(containers[i]);
 		}
 
 		node.appendChild(fragment);
-		document.getElementById('game-over').classList.replace('modal--closed', 'modal--opennig');
+		document.getElementById('game-over')
+			.classList
+			.replace(
+				'modal--closed',
+				'modal--opennig'
+			)
+		;
+
+		document.getElementById('game-over')
+			.scroll({
+				top: 0,
+				left: 0,
+				behavior: 'smooth'
+			})
+		;
 	}
 }
 
 /**
-* @description This object is responsable for existence of the game.
-* @property { array } cards The content to be shown when the user clicks on any card.
-* @property { array } rearrangedCards Keep the cards at a new layout.
-* @property { array } clickedCards Keep the card that the user clicks on. Max: two cards.
-* @property { array } matched When two cards match, they are keeped inside this array. When the array length is 28, the 
-*	user wins the game.
+* @description
+* This object is responsable for existence of the game.
+* @property { array } cards
+* The content to be shown when the user clicks on any card.
+* @property { array } rearrangedCards
+* Storage the cards at a new layout.
+* @property { array } clickedCards
+* Storage the card that the user clicks on. Max: two cards.
+* @property { array } matchedCards
+* When two cards match, they are storaged inside this array. When the array length is 28, 
+* the user wins the game.
 */
-
-let card = {
+const card = {
 	cards: [
-		{ card: "❦",		id: 0		},
-		{ card: "❧",		id: 1		},
-		{ card: "☙",		id: 2		},
-		{ card: "❥",		id: 3		},
-		{ card: "✧",		id: 4		},
-		{ card: "➳",		id: 5		},
-		{ card: "💝",		id: 6		},
-		{ card: "💕",		id: 7		},
-		{ card: "🌹",		id: 8		},
-		{ card: "🌷",		id: 9		},
-		{ card: "💐",		id: 10	},
-		{ card: "🌺",		id: 11	},
-		{ card: "✯",		id: 12	},
-		{ card: "❀",		id: 13	}
+		{ card: '❦',		id: '0'		},
+		{ card: '❧',		id: '1'		},
+		{ card: '☙',		id: '2'		},
+		{ card: '❥',		id: '3'		},
+		{ card: '✧',		id: '4'		},
+		{ card: '➳',		id: '5'		},
+		{ card: '💝',		id: '6'		},
+		{ card: '💕',		id: '7'		},
+		{ card: '🌹',		id: '8'		},
+		{ card: '🌷',		id: '9'		},
+		{ card: '💐',		id: '10'	},
+		{ card: '🌺',		id: '11'	},
+		{ card: '✯',		id: '12'	},
+		{ card: '❀',		id: '13'	}
 	],
 	rearrangedCards: [],
 	clickedCards: [],
 	matchedCards: [],
 
 	/**
-	* @description Generate random numbers between 0 and 27 (including the two numbers).
-	* @returns { array } numbers at a new position.
-	*/
-	generateRandomNumbers() {
-		let cards = [];
-		let nCard = 0;
-		let obj = 0;
+	 * Generate random numbers between 0 and 27 (including the two numbers).
+	 */
+	generateRandomNumbers: () => {
+		let randomNumber = 0;
+		let numbers = [];
+		let number = 0;
 
-		for (let i = 0; i <= 27; i++) {
-			cards[i] = i;
+		for (let i = 0; i <= ((card.cards.length * 2) - 1); i++) {
+			numbers[i] = i;
 		}
 
-		for (let i = cards.length; i;) {
-			nCard = Math.random() * i-- | 0;
-			obj = cards[nCard];
-			cards[nCard] = cards[i];
-			cards[i] = obj;		
+		for (let i = numbers.length; i;) {
+			randomNumber = Math.random() * i-- | 0;
+			number = numbers[randomNumber];
+			numbers[randomNumber] = numbers[i];
+			numbers[i] = number;		
 		}
 
-		return cards;
+		return numbers;
 	},
 
 	/**
-	* @description With the random numbers, this method rearrange the cards.
-	*/
-	rearrangeCards() {
-		let newLayout = this.generateRandomNumbers();
-		let duplicate = [...this.cards, ...this.cards];
+	 * With the random numbers, this method rearrange the cards.
+	 */
+	rearrangeCards: () => {
+		let numbers = card.generateRandomNumbers();
+		let duplicate = [...card.cards, ...card.cards];
 
-		this.rearrangedCards = [];
+		card.rearrangedCards = [];
 
-		for (let i = 0; i <= (newLayout.length - 1); i++) {
-			this.rearrangedCards.push(duplicate[newLayout[i]]);
+		for (let i = 0; i < numbers.length; i++) {
+			card.rearrangedCards.push(duplicate[numbers[i]]);
 		}
 	}
 };
 
 /**
-* @description This function is responsable for creating the 'game arena': the place where all cards are. This function uses 
-* a 'document fragment' to prevent reflow and new design generation.
+* @description
+* This function is responsable for creating the 'game arena': the place where all cards 
+* are. This function uses a 'document fragment' to prevent reflow and new design generation.
 */
 function buildGame() {
 	let fragment = document.createDocumentFragment();
-	let card;
+	let _card = null;
 
-	for (let i = 0; i <= 27; i++) {
-		card = document.createElement('div');
-		card.setAttribute('id', `rr${String(i)}`);
-		card.classList.add('game__card');
-		card.textContent = '🍀';
+	for (let i = 0; i < (card.cards.length * 2); i++) {
+		_card = document.createElement('div');
+		_card.setAttribute('id', `card${i}`);
+		_card.classList.add('game__card');
+		_card.textContent = '🍀';
 		
-		fragment.appendChild(card);
+		fragment.appendChild(_card);
+		_card = null;
 	}
 
-	document.getElementById('game').appendChild(fragment);
+	document.getElementById('game')
+		.appendChild(fragment)
+	;
 }

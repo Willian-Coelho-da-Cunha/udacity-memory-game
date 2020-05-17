@@ -64,7 +64,7 @@ function startGame() {
 
 	card.rearrangeCards();
 
-	timer.timeOn();
+	timer.timerOn();
 
 	addEventListener();
 }
@@ -181,7 +181,7 @@ function turnCard(event) {
 	this.classList.add('game__card--clicked');
 
 	for (let i = 0; i < card.rearrangedCards.length; i++) {
-		if (card.rearrangedCards[i].id === cardHtmlId.slice(4)) {
+		if (String(i) === cardHtmlId.slice(4)) {
 			/**
 			 * Show the clicked card content to the user.
 			 */
@@ -201,7 +201,7 @@ function turnCard(event) {
 	}
 
 	if (card.clickedCards.length === 2) {
-		if (card.clickedCards[0].cardHtmlId === card.clickedCards[1].cardHtmlId) {
+		if (card.clickedCards[0].id === card.clickedCards[1].id) {
 
 			/**
 			 * Storage the matched cards informations.
@@ -333,7 +333,7 @@ function restartGame() {
 	/**
 	 * Stop the timer.
 	 */
-	timer.timeOff();
+	timer.timerOff();
 
 	/**
 	 * Check if the user clicks on the button when there is no matched cards.
@@ -438,5 +438,5 @@ function closeGameOverModal() {
 		document.getElementsByClassName('modal__content__action__button--play-again')[0]
 			.removeAttribute('disabled')
 		;
-	}, 1000);
+	}, 500);
 }

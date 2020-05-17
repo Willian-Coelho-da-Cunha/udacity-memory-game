@@ -4,7 +4,7 @@
 
 body {
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 0px;
 	display: block;
 	font-family: cursive, serif;
@@ -35,6 +35,7 @@ body {
 	margin: 0px;
 	border: 0px;
 	padding: 0px;
+	display: block;
 	color: lightblue;
 	font-size: 3rem;
 	font-weight: 100;
@@ -44,6 +45,7 @@ body {
 /*
 	Indicators: Timer, Star rating, Move counter.
 */
+
 .indicators {
 	box-sizing: border-box;
 	margin: 0px;
@@ -70,8 +72,9 @@ body {
 .indicators__move-counter__title {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 0px;
+	display: block;
 	color: lightblue;
 	font-size: 2rem;
 	font-weight: 100;
@@ -82,8 +85,9 @@ body {
 .indicators__move-counter__move-counter {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 0px;
+	display: block;
 	color: lightblue;
 	font-size: 1.75rem;
 	font-weight: 100;
@@ -94,8 +98,9 @@ body {
 .indicators__star-rating__star-rating--with-stars {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 0px;
+	display: block;
 	color: lightblue;
 	font-size: 4rem;
 	font-weight: 100;
@@ -107,8 +112,9 @@ body {
 .indicators__star-rating__star-rating--without-stars {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 0px;
+	display: block;
 	color: lightblue;
 	font-size: 1.75rem;
 	font-weight: 100;
@@ -137,6 +143,7 @@ body {
 /*
 	Game.
 */
+
 .game {
 	box-sizing: border-box;
 	margin: 0px;
@@ -164,11 +171,12 @@ body {
 	font-size: 2.5rem;
 	cursor: pointer;
 	background-color: deeppink;
-	transition: all 1s ease;
+	transition: all 0.5s ease;
 }
 
 .game__card:hover {
 	box-shadow: inset 0px 0px 32px 12px white;
+	transition: all 0.5s ease;
 }
 
 .game__card--clicked {
@@ -178,7 +186,7 @@ body {
 	transform: skewY(4deg);
 	cursor: default;
 	background: radial-gradient(white, lightgreen);
-	transition: all 1s ease;
+	transition: all 0.5s ease;
 }
 
 .game__card--clicked:hover {
@@ -187,10 +195,10 @@ body {
 
 .game__card--matched {
 	color: white;
-	font-size: 6em;
+	font-size: 6rem;
 	cursor: default;
 	background: transparent;
-	transition: all 2s ease;
+	transition: all 0.5s ease;
 }
 
 .game__card--matched:hover {
@@ -200,6 +208,7 @@ body {
 /*
 	Button to restart the game.
 */
+
 .restart-the-game {
 	box-sizing: border-box;
 	margin: 0px;
@@ -229,104 +238,123 @@ body {
 }
 
 /*
-	Footer
+	Footer.
 */
-footer {
+
+.footer {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 8px 0px 8px 0px;
+	display: block;
 	color: lightblue;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 }
 
-footer > h6 {
+.footer__title {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 4px;
+	display: block;
 	font-size: 1.5rem;
 	font-weight: 100;
 	text-align: center;
 }
 
-footer > p {
+.footer__body {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 4px;
+	display: block;
 	font-size: 1.3rem;
 	font-weight: 100;
 	text-align: center;
 }
 
-/*------MODAL GAME OVER------*/
-.containerGameOver {
+/*
+	Modal game over.
+*/
+.game-over__attempt {
 	box-sizing: border-box;
 	margin: 4px 12px 4px 12px;
-	border: none;
-	padding: 0px;
+	border: 0px;
 	border-radius: 12px;
+	padding: 0px;
+	display: block;
 	box-shadow: inset 0px 0px 32px #808000;
 }
 
-.chanceNumber {
+.game-over__attempt__title {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 20px 12px 4px 12px;
 	color: #808000;
-	font-size: 2rem;
+	font-size: 1.75rem;
 	font-weight: 100;
 }
 
-.timeSpent {
+.game-over__attempt__spent-time {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 4px 12px 4px 12px;
 	color: gray;
 	font-size: 1.25rem;
 	font-weight: 100;
 }
 
-.performanceMessage {
+.game-over__attempt__message {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 4px 12px 20px 12px;
 	color: gray;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: 100;
 }
 
-.achievedStarRating {
+.game-over__attempt__star-rating {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 4px 12px 4px 12px;
 	color: #808000;
-	font-size: 1.75rem;
+	font-size: 1.5rem;
 	text-align: center;
 }
 
 /*
-	Scroll bar
+	Scroll bar.
 */
+
 ::-webkit-scrollbar {
-  display: none;
+	box-sizing: border-box;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	width: 12px;
+	background-color: white;
 }
 
 ::-webkit-scrollbar-track {
-	display: none;
+	box-sizing: border-box;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
-	display: none;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	display: none;
+	box-sizing: border-box;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.5);
 }
 
 /*
@@ -334,8 +362,9 @@ footer > p {
 */
 
 .modal {
+	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 0px;
 	display: flex;
 	align-items: center;
@@ -352,13 +381,13 @@ footer > p {
 }
 
 .modal--opennig {
-	animation: fadeinout__modal--opennig 1s linear forwards;
-	-webkit-animation: fadeinout__modal--opennig 1s linear forwards;
+	animation: fadeinout__modal--opennig 0.5s linear forwards;
+	-webkit-animation: fadeinout__modal--opennig 0.5s linear forwards;
 }
 
 .modal--closing {
-	animation: fadeinout__modal--closing 1s linear forwards;
-	-webkit-animation: fadeinout__modal--closing 1s linear forwards;
+	animation: fadeinout__modal--closing 0.5s linear forwards;
+	-webkit-animation: fadeinout__modal--closing 0.5s linear forwards;
 }
 
 .modal--closed {
@@ -372,7 +401,6 @@ footer > p {
 
 	100% {
 		opacity: 1;
-		visibility: visible;
 	}
 }
 
@@ -383,7 +411,6 @@ footer > p {
 
 	100% {
 		opacity: 1;
-		visibility: visible;
 	}
 }
 
@@ -394,7 +421,6 @@ footer > p {
 
 	100% {
 		opacity: 0;
-		visibility: hidden;
 	}
 }
 
@@ -405,14 +431,13 @@ footer > p {
 
 	100% {
 		opacity: 0;
-		visibility: hidden;
 	}
 }
 
 .modal__content {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	border-radius: 8px;
 	padding: 0px;
 	max-height: 90vh;
@@ -424,7 +449,7 @@ footer > p {
 .modal__content__title {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 20px 12px 8px 12px;
 	font-size: 2rem;
 	font-weight: 100;
@@ -434,11 +459,11 @@ footer > p {
 .modal__content__body {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 8px 12px 8px 12px;
 	font-size: 1.25rem;
 	font-weight: 100;
-	text-indent: 60px;
+	text-indent: 40px;
 }
 
 .modal__content__action {
@@ -451,20 +476,20 @@ footer > p {
 }
 
 .modal__content__action__button--start-the-game {
-	padding: 24px;
-	border: none;
+	box-sizing: border-box;
+	border: 0px;
 	border-radius: 12px;
+	padding: 20px;
 	color: white;
 	font-size: 1.75rem;
+	cursor: pointer;
 	background-color: #163616;
 	box-shadow: 5px 5px 5px #000;
-	z-index: 10;
-	cursor: pointer;
 	transition: background-color ease-in-out 0.5s;
 }
 
 .modal__content__action__button--start-the-game:focus {
-	outline: none;
+	outline: 0px;
 }
 
 .modal__content__action__button--start-the-game:hover {
@@ -473,20 +498,21 @@ footer > p {
 }
 
 .modal__content__action__button--close {
+	box-sizing: border-box;
 	margin: 8px;
-	padding: 24px;
-	border: none;
+	border: 0px;
 	border-radius: 8px;
+	padding: 20px;
 	color: white;
-	font-size: 2rem;
-	letter-spacing: 1px;
+	font-size: 1.75rem;
+	letter-spacing: 2px;
 	cursor: pointer;
 	background-color: rgb(165, 35, 6);
 	transition: background-color ease-in-out 0.5s;
 }
 
 .modal__content__action__button--close:focus {
-	outline: none;
+	outline: 0px;
 }
 
 .modal__content__action__button--close:hover {
@@ -495,20 +521,21 @@ footer > p {
 }
 
 .modal__content__action__button--play-again {
+	box-sizing: border-box;
 	margin: 8px;
-	padding: 24px;
-	border: none;
+	border: 0px;
 	border-radius: 8px;
+	padding: 20px;
 	color: white;
-	font-size: 2rem;
-	letter-spacing: 1px;
+	font-size: 1.75rem;
+	letter-spacing: 2px;
 	cursor: pointer;
 	background-color: rgb(3, 109, 12);
 	transition: background-color ease-in-out 0.5s;
 }
 
 .modal__content__action__button--play-again:focus {
-	outline: none;
+	outline: 0px;
 }
 
 .modal__content__action__button--play-again:hover {
@@ -530,18 +557,18 @@ footer > p {
 
 @media screen and (min-width: 960px) and (max-width: 1279px) {
 	.modal__content {
-		width: 60vw;
+		width: 64vw;
 	}
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1919px) {
 	.modal__content {
-		width: 40vw;
+		width: 48vw;
 	}
 }
 
 @media screen and (min-width: 1920px) and (max-width: 5000px) {
 	.modal__content {
-		width: 40vw;
+		width: 48vw;
 	}
 }

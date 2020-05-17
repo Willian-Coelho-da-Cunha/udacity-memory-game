@@ -6,46 +6,46 @@ This game was developed during the front-end web development nanodegree of Udaci
 
 Technology        | Description
 ---               | ---
-Git               | [System control version.](https://git-scm.com/)
-CSS3              | Cascade style sheet (CSS).
-HTML5             | Hypertext Markup language (HTML).
-Javascript (ES6)  | Javascript (ES6). In addition, some features were consulted on the [Mozilla developer network (MDN)](https://developer.mozilla.org/pt-BR/) platform.
+Git               | [Version control system.](https://git-scm.com/)
+CSS3              | Cascade style sheet.
+HTML5             | Hypertext markup language.
+Javascript (ES6)  | Javascript (ES6).
 
 ## Logic of the game
 
-**index.html** is the main file of the project. It is a Graphical User Interface (GUI).
+- **index.html** is the main file of the project. It is a Graphical User Interface (GUI).
 
-Click on **index.html** file twice. When the web page loads, a modal appears immediately.
+- Click on **index.html** file twice. When the web page loads, a modal appears immediately.
 
 - Press **Star the game!** button;
 
-Now, the Timer will run; your stars in the Star rating will be in risk; and the Move counter will be prepared to you.
+- Now, the Timer will run; your stars in the Star rating will be in risk; and the Move counter will be prepared to you.
 
 - Click on any card;
 
-The content of the clicked card will appear. And, the game must keep it.
+- The content of the clicked card will appear. And, the game must keep it.
 
 - Click on another card;
 
-The content of the clicked card will appear too. And, the game must keep it for one second.
+- The content of the clicked card will appear too. And, the game must keep it for one second.
 
-The restart button will be disabled during the match verification. (This action solved a problem identified during the version two development.)
+- The restart button will be disabled during the match verification. (This action solved a problem identified during the version two development.)
 
-The game must not allow clicking any card until the end of the match verification.
+- The game must not allow clicking any card until the end of the match verification.
 
-The game will check the clicked cards.
+- The game will check the clicked cards.
 
 - If the clicked cards contains the same figure:
 
-You will have played the game. Go ahead! The matched cards will leave the game. No click on them must have effects.
+- You will have played the game. Go ahead! The matched cards will leave the game. No click on them must have effects.
 
 - If the clicked cards won't contains the same figure:
 
-The clicked cards will return to the starting position: their contents will be hidden after one second.
+- The clicked cards will return to the starting position: their contents will be hidden after one second.
 
 - When you get to combine all cards' figure: You will win the game!
 
-You can restart the game at any time. When you restart it, the Timer, Star rating and Move counter come back to initial state.
+- You can restart the game at any time. When you restart it, the Timer, Star rating and Move counter come back to initial state.
 
 ## Executing the code
 
@@ -69,10 +69,6 @@ At this date, no error messages were displayed.
 ## Developer
 
 -  Willian Coelho da Cunha
-
-## Contributions
-
-This project won't accept contributions because it is a test project.
 
 ## Review and version
 

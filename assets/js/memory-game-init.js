@@ -73,6 +73,8 @@ function updateTimer() {
 * @description
 * This object has two methods. They are responsable to setting and displaying a star rating 
 * to the user as a way to show his or her respective performance in the game.
+* @property { any } messageNoStars
+* Storage the node element responsable to show the message "Without stars!" to the user.
 */
 const starRating = {
 	messageNoStars: null,

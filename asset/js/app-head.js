@@ -60,6 +60,8 @@ function add() {
 */
 
 let starRating = {
+	messageNoStars: null,
+
 	/**
 	* @description Restart the star rating when the user restarts the game. Use a 'document fragment' to prevent reflow and 
 	* new design generation.
@@ -68,10 +70,6 @@ let starRating = {
 		let starRating = document.createDocumentFragment();
 		let stars = document.querySelectorAll('.star');
 
-		if (document.querySelector('.messageWithoutStars')) {
-			document.querySelector('.messageWithoutStars').remove();
-		}
-
 		for (let i = stars.length; i < 3; i++) {
 			let span = document.createElement('span');
 			span.setAttribute('class', 'star');
@@ -79,7 +77,30 @@ let starRating = {
 			starRating.appendChild(span);
 		}
 
-		document.getElementById('star-rating').appendChild(starRating);
+		if (document.querySelector('.indicators__star-rating__star-rating--without-stars')) {
+			document.querySelector('.indicators__star-rating__star-rating--without-stars')
+				.removeChild(this.messageNoStars)
+			;
+
+			document.querySelector('.indicators__star-rating__star-rating--without-stars')
+				.appendChild(starRating)
+			;
+
+			document.querySelector('.indicators__star-rating__star-rating--without-stars')
+				.classList
+				.replace(
+					'indicators__star-rating__star-rating--without-stars',
+					'indicators__star-rating__star-rating--with-stars'
+				)
+			;
+
+			this.messageNoStars = null;
+
+		} else if (document.querySelector('.indicators__star-rating__star-rating--with-stars')) {
+			document.querySelector('.indicators__star-rating__star-rating--with-stars')
+				.appendChild(starRating)
+			;
+		}
 	},
 
 	/**
@@ -87,17 +108,24 @@ let starRating = {
 	* star.
 	*/
 	removeStar() {
-		let star = document.querySelectorAll('.star');
+		let stars = document.querySelectorAll('.star');
+		stars[stars.length - 1].remove();
 
-		star[star.length-1].remove();
+		if (stars.length === 1) {
+			this.messageNoStars = document.createElement('span');
+			this.messageNoStars.textContent = 'Without stars!';
 
-		if (star.length === 1) {
-			let span = document.createElement("span");
-
-			span.setAttribute('class', 'messageWithoutStars');
-			span.textContent = 'Without stars!';
-
-			document.getElementById('star-rating').appendChild(span);
+			document.querySelector('.indicators__star-rating__star-rating--with-stars')
+				.classList
+				.replace(
+					'indicators__star-rating__star-rating--with-stars',
+					'indicators__star-rating__star-rating--without-stars'
+				)
+			;
+	
+			document.querySelector('.indicators__star-rating__star-rating--without-stars')
+				.appendChild(this.messageNoStars)
+			;
 		}
 	}
 };
@@ -139,9 +167,14 @@ let moveCounter = {
 	*/
 	showDisplayCounter() {
 		if (this.displayCounter <= 9) {
-			document.querySelector('.move-counter').textContent = `0${String(this.displayCounter)}`;
+			document.querySelector('.indicators__move-counter__move-counter')
+				.textContent = `0${String(this.displayCounter)}`
+			;
+
 		} else {
-			document.querySelector('.move-counter').textContent = `${String(this.displayCounter)}`;
+			document.querySelector('.indicators__move-counter__move-counter')
+				.textContent = `${String(this.displayCounter)}`
+			;
 		}
 	},
 
@@ -149,7 +182,9 @@ let moveCounter = {
 	restartCounter() {
 		this.moveCounter = 0;
 		this.displayCounter = 0;
-		document.querySelector(".move-counter").textContent = '00';
+		document.querySelector(".indicators__move-counter__move-counter")
+			.textContent = '00'
+		;
 	}
 };
 
@@ -321,18 +356,18 @@ let card = {
 * @description This function is responsable for creating the 'game arena': the place where all cards are. This function uses 
 * a 'document fragment' to prevent reflow and new design generation.
 */
-function gameArena() {
+function buildGame() {
 	let fragment = document.createDocumentFragment();
 	let card;
 
 	for (let i = 0; i <= 27; i++) {
 		card = document.createElement('div');
 		card.setAttribute('id', `rr${String(i)}`);
-		card.classList.add('card');
-		card.textContent = '.. ? ..';
+		card.classList.add('game__card');
+		card.textContent = '🍀';
 		
 		fragment.appendChild(card);
 	}
 
-	document.getElementById('game-arena').appendChild(fragment);
+	document.getElementById('game').appendChild(fragment);
 }

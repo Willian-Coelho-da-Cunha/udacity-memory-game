@@ -2,13 +2,16 @@ document.getElementById('start-game').classList.remove(['modal--closed']);
 document.getElementById('start-game').classList.add(['modal--opennig']);
 
 /**
-* @description This function is called in the first time after the page is loaded, when the user clicks on 
+* @description
+* This function is called in the first time after the page is loaded, when the user clicks on 
 * start game button on a modal.
 */
 
 function startGame() {
+
 	/**
-	 * @description Close 'start-game' modal.
+	 * @description
+	 * Close 'start-game' modal.
 	*/
 	let timeOut = null;
 
@@ -30,26 +33,28 @@ function startGame() {
 }
 
 function addEventListener() {
-	const cards = document.querySelectorAll('.card');
+	const gameCards = document.querySelectorAll('.game__card');
 
-	for (let i = 0; i < cards.length; i++) {
-		cards[i].addEventListener('click', turnCard);
+	for (let i = 0; i < gameCards.length; i++) {
+		gameCards[i].addEventListener('click', turnCard);
 	}
 }
 
 function removeEventListener() {
-	const cards = document.querySelectorAll('.card');
+	const gameCards = document.querySelectorAll('.game__card');
 
-	for (let i = 0; i < cards.length; i++) {
-		cards[i].removeEventListener('click', turnCard);
+	for (let i = 0; i < gameCards.length; i++) {
+		gameCards[i].removeEventListener('click', turnCard);
 	}
 }
 
 /**
-* @description This function is responsable for implementing the rules of the game. Recognize the target of an event, 
-* apply methods and rules and prevent some mistakes during the game. As soon as, verify if the user wins the game.
-*
-* @param { event } event Characteristics of the event.
+* @description
+* This function is responsable for implementing the rules of the game. Recognize the target of 
+* an event, apply methods and rules and prevent some mistakes during the game. As soon as, 
+* verify if the user wins the game.
+* @param { event } event
+* Characteristics of the event.
 */
 
 function turnCard(event) {
@@ -82,7 +87,7 @@ function turnCard(event) {
 	moveCounter.increaseCounter();
 
 	/*------ADD STYLE CLASS------*/
-	this.classList.add('card-clicked');
+	this.classList.add('game__card--clicked');
 
 	for (let i = 0; i <= 27; i++) {
 		if (indice === `rr${String(i)}`) {
@@ -111,10 +116,10 @@ function turnCard(event) {
 			card.matched.push(card.clickedCards[1]);
 
 			/*------STYLE CARD------*/
-			document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.add('card-match');
-			document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.add('card-match');
-			document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.remove('card-clicked');
-			document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.remove('card-clicked');
+			document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.add('game__card--matched');
+			document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.add('game__card--matched');
+			document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.remove('game__card--clicked');
+			document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.remove('game__card--clicked');
 
 			/*------CLEAR THE CLICKED CARDS ARRAY------*/
 			card.clickedCards = [];
@@ -131,7 +136,7 @@ function turnCard(event) {
 			let show;
 
 			/*------DISABLE RESTART BUTTON------*/
-			document.querySelector('.container-button-restart-the-game__button-restart-the-game').disabled = true;
+			document.querySelector('.restart-the-game__button').disabled = true;
 
 			/*------SHOW CLICKED CARDS WITH SOME TIME AS DELAY------*/
 			show = setTimeout(delayDisplayCard, 1000);
@@ -147,10 +152,10 @@ function turnCard(event) {
 function delayDisplayCard() {
 
 	/*------RESTART STYLE CARD------*/
-	document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).textContent = '.. ? ..';
-	document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).textContent = '.. ? ..';
-	document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.remove('card-clicked');
-	document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.remove('card-clicked');
+	document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).textContent = '🍀';
+	document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).textContent = '🍀';
+	document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.remove('game__card--clicked');
+	document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.remove('game__card--clicked');
 
 	/*------CLEAR THE CLICKED ARRAY------*/
 	card.clickedCards = [];
@@ -162,7 +167,7 @@ function delayDisplayCard() {
 	clearTimeout(this.show);
 
 	/*------ENABLE RESTART BUTTON------*/
-	document.querySelector('.container-button-restart-the-game__button-restart-the-game').disabled = false;
+	document.querySelector('.restart-the-game__button').disabled = false;
 }
 
 /**
@@ -183,7 +188,7 @@ function restartGame() {
 
 	/*------IF THE USER CLICK ON THE BUTTON WITH OUT MATCH NO CARDS------*/
 	let cardMatrix = [];
-	cardMatrix = document.querySelectorAll('.card-match');
+	cardMatrix = document.querySelectorAll('.game__card--matched');
 
 	if (!(cardMatrix === null)) {
 		if (cardMatrix.length === 28) {
@@ -195,17 +200,17 @@ function restartGame() {
 		/*------REMOVE CARD-MATCH CLASS------*/
 		for (let i = 0; i < cardMatrix.length; i++) {
 			cardMatrix[i].textContent = '.. ? ..';
-			cardMatrix[i].classList.remove('card-match');
+			cardMatrix[i].classList.remove('game__card--matched');
 		}
 	}
 
 	/*------FIX A BUG: CLICK ON ONE CARD AND PRESS RESTART GAME BUTTON------*/
 	let cardClicked;
-	cardClicked = document.querySelector('.card-clicked');
+	cardClicked = document.querySelector('.game__card--clicked');
 
 	if (!((cardClicked === undefined) || (cardClicked === null))) {
 		cardClicked.textContent = '.. ? ..';
-		cardClicked.classList.remove('card-clicked');
+		cardClicked.classList.remove('game__card--clicked');
 	}
 
 	/*------RESET THE CARD PROPERTIES------*/

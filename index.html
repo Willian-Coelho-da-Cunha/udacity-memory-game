@@ -6,38 +6,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<meta
 			name="description"
-			content="This web page contains a memory game. This memory game was developed at the end of the Udacity's 
-				Nanodegree: Nanodegree Front End Web Development. My name is Willian Coelho da Cunha. I did the Nanodegree 
-				and I developed this game in September, 2018. And, after this, I have been improving the game. Feel free to 
-				play it. And, thanks for being here." />
+			content="This web page contains a memory game. This memory game was developed at the end of the 
+				Udacity's Nanodegree: Nanodegree Front End Web Development. My name is Willian Coelho da Cunha. 
+				I did the Nanodegree and I developed this game in September, 2018. And, after this, I have been 
+				improving the game. Feel free to play it. And, thanks for being here." />
 		<meta name="author" content="Willian Coelho da Cunha" />
 
-		<!--css-->
+		<!--CSS-->
 		<link rel="stylesheet" href="asset/css/app.css" />
 
-		<!--js-->
+		<!--JS-->
 		<script src="asset/js/app-head.js"></script>
 	</head>
 
 	<body>
-		<!--header-->
-		<header>
-			<h1>Memory game</h1>
+		<!--Header-->
+		<header class="header">
+			<h1 class="header__project-name">Memory game</h1>
 		</header>
 
-		<!--Star rating, timer and move counter-->
-		<section class="indicator">
+		<!--Indicators-->
+		<section class="indicators">
 
 			<!--Timer-->
-			<section class="indicator__timer">
-				<h3 class="indicator__timer__title">Timer</h3>
-				<h4 class="indicator__timer__timer"><time class="timer">00:00:00</time></h4>
+			<section class="indicators__timer">
+				<h3 class="indicators__timer__title">Timer</h3>
+				<h4 class="indicators__timer__timer"><time class="timer">00:00:00</time></h4>
 			</section>
 
 			<!--Star rating-->
-			<section class="indicator__star-rating">
-				<h3 class="indicator__star-rating__title">Star rating</h3>
-				<h4 id="star-rating" class="indicator__star-rating__star-rating">
+			<section class="indicators__star-rating">
+				<h3 class="indicators__star-rating__title">Star rating</h3>
+				<h4 class="indicators__star-rating__star-rating--with-stars">
 					<span class="star">&#10023;</span>
 					<span class="star">&#10023;</span>
 					<span class="star">&#10023;</span>
@@ -45,22 +45,22 @@
 			</section>
 
 			<!--Move counter-->
-			<section class="indicator__move-counter">
-				<h3 class="indicator__move-counter__title">Move counter</h3>
-				<h4 class="move-counter indicator__move-counter__move-counter">00</h4>
+			<section class="indicators__move-counter">
+				<h3 class="indicators__move-counter__title">Move counter</h3>
+				<h4 class="indicators__move-counter__move-counter">00</h4>
 			</section>
 		</section>
 
-		<!--Game arena-->
-		<section id="game-arena" class="game-arena">
-			<script>gameArena();</script>
+		<!--Game-->
+		<section id="game" class="game">
+			<script>buildGame();</script>
 		</section>
 
-		<!--Button restart the game-->
-		<section class="container-button-restart-the-game">
+		<!--Button to restart the game-->
+		<section class="restart-the-game">
 			<button
 				type="button"
-				class="container-button-restart-the-game__button-restart-the-game"
+				class="restart-the-game__button"
 				onclick="javascript:restartGame();">
 					Restart the game?
 			</button>
@@ -119,7 +119,7 @@
 			</section>
 		</section>
 
-		<!--js-->
+		<!--JS-->
 		<script src="asset/js/app.js"></script>
 	</body>
 </html>

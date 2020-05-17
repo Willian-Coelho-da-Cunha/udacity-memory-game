@@ -18,34 +18,33 @@ body {
 }
 
 /*
-	Header
+	Header.
 */
 
-header {
+.header {
 	box-sizing: border-box;
 	margin: 0px;
 	border: 0px;
 	padding: 8px;
 	display: block;
+	background: linear-gradient(45deg, deeppink, #166616);
 }
 
-header > h1 {
+.header__project-name {
 	box-sizing: border-box;
 	margin: 0px;
-	border: none;
+	border: 0px;
 	padding: 0px;
-	color: lawngreen;
+	color: lightblue;
 	font-size: 3rem;
 	font-weight: 100;
 	text-align: center;
 }
 
 /*
-	Timer
-	Star rating
-	Move counter
+	Indicators: Timer, Star rating, Move counter.
 */
-.indicator {
+.indicators {
 	box-sizing: border-box;
 	margin: 0px;
 	border: none;
@@ -54,22 +53,21 @@ header > h1 {
 	justify-content: space-around;
 }
 
-.indicator__timer,
-.indicator__star-rating,
-.indicator__move-counter {
+.indicators__timer,
+.indicators__star-rating,
+.indicators__move-counter {
 	box-sizing: border-box;
 	margin: auto;
 	border: 40px solid transparent;
 	border-radius: 4px;
 	padding: 12px;
 	width: 33.33%;
-	box-shadow: 0px 0px 8px 2px firebrick;
-	background: linear-gradient(45deg, deeppink, orangered);
+	background: linear-gradient(45deg, deeppink, #166616);
 }
 
-.indicator__timer__title,
-.indicator__star-rating__title,
-.indicator__move-counter__title {
+.indicators__timer__title,
+.indicators__star-rating__title,
+.indicators__move-counter__title {
 	box-sizing: border-box;
 	margin: 0px;
 	border: none;
@@ -80,65 +78,66 @@ header > h1 {
 	text-align: center;
 }
 
-.indicator__timer__timer,
-.indicator__move-counter__move-counter {
+.indicators__timer__timer,
+.indicators__move-counter__move-counter {
 	box-sizing: border-box;
 	margin: 0px;
 	border: none;
 	padding: 0px;
-	color: orange;
+	color: lightblue;
 	font-size: 1.75rem;
 	font-weight: 100;
 	text-align: center;
 	letter-spacing: 2px;
 }
 
-.indicator__star-rating__star-rating {
+.indicators__star-rating__star-rating--with-stars {
 	box-sizing: border-box;
 	margin: 0px;
 	border: none;
 	padding: 0px;
-	color: orange;
+	color: lightblue;
 	font-size: 4rem;
 	font-weight: 100;
 	text-align: center;
-	line-height: 60px;
+	line-height: 80px;
 	letter-spacing: 2px;
 }
 
-.messageWithoutStars {
+.indicators__star-rating__star-rating--without-stars {
 	box-sizing: border-box;
 	margin: 0px;
 	border: none;
 	padding: 0px;
-	color: orange;
+	color: lightblue;
 	font-size: 1.75rem;
 	font-weight: 100;
-	line-height: 60px;
+	text-align: center;
+	line-height: 80px;
 	letter-spacing: 2px;
 }
 
 @media screen and (max-width: 599px) {
-	.indicator {
+	.indicators {
 		display: flex;
 		flex-direction: column;
 	}
 
-	.indicator__timer,
-	.indicator__star-rating,
-	.indicator__move-counter {
+	.indicators__timer,
+	.indicators__star-rating,
+	.indicators__move-counter {
 		width: 100%;
 	}
 
-	.indicator__star-rating {
+	.indicators__star-rating {
 		margin: 16px 0px 16px 0px;
 	}
 }
 
 /*
-	Game
+	Game.
 */
-.game-arena {
+.game {
 	box-sizing: border-box;
 	margin: 0px;
 	border: 0px;
@@ -149,52 +148,18 @@ header > h1 {
 	justify-content: center;
 }
 
-/*
-	Button restart the game
-*/
-.container-button-restart-the-game {
+.game__card {
 	box-sizing: border-box;
-	margin: 0;
-	border: none;
-	padding: 8px 0px 8px 0px;
-	text-align: center;
-}
-
-.container-button-restart-the-game__button-restart-the-game {
-	box-sizing: border-box;
-	margin: 0;
-	border: 8px outset darkgoldenrod;
-	border-radius: 4px;
-	padding: 20px;
-	color: rgb(76, 4, 51);
-	font-size: 2rem;
-	cursor: pointer;
-	background-color: burlywood;
-	transition: all ease-in-out 0.5s;
-}
-
-.container-button-restart-the-game__button-restart-the-game:hover {
-	box-shadow: inset 0px 0px 64px 0px darkgoldenrod;
-	transition: all ease-in-out 0.5s;
-}
-
-.container-button-restart-the-game__button-restart-the-game:focus {
-	outline: none;
-}
-
-/*
-	Card.
-*/
-.card {
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
 	margin: 8px;
-	border: none;
+	border: 0px;
 	border-radius: 8px;
+	padding: 0px;
 	min-width: 200px;
 	max-width: 260px;
 	min-height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	color: greenyellow;
 	font-size: 2.5rem;
 	cursor: pointer;
@@ -202,11 +167,11 @@ header > h1 {
 	transition: all 1s ease;
 }
 
-.card:hover {
+.game__card:hover {
 	box-shadow: inset 0px 0px 32px 12px white;
 }
 
-.card-clicked {
+.game__card--clicked {
 	color: rgb(76, 4, 51);
 	font-size: 5em;
 	transform: skewX(4deg);
@@ -216,11 +181,11 @@ header > h1 {
 	transition: all 1s ease;
 }
 
-.card-clicked:hover {
+.game__card--clicked:hover {
 	box-shadow: none;
 }
 
-.card-match {
+.game__card--matched {
 	color: white;
 	font-size: 6em;
 	cursor: default;
@@ -228,8 +193,39 @@ header > h1 {
 	transition: all 2s ease;
 }
 
-.card-match:hover {
+.game__card--matched:hover {
 	box-shadow: none;
+}
+
+/*
+	Button to restart the game.
+*/
+.restart-the-game {
+	box-sizing: border-box;
+	margin: 0px;
+	border: 0px;
+	padding: 32px 0px 32px 0px;
+	display: flex;
+	justify-content: center;
+}
+
+.restart-the-game__button {
+	box-sizing: border-box;
+	margin: 0px;
+	border: 0px;
+	border-radius: 4px;
+	padding: 20px;
+	color: darkmagenta;
+	font-size: 2rem;
+	text-align: center;
+	cursor: pointer;
+	background-color: burlywood;
+	transition: all ease-in-out 0.5s;
+}
+
+.restart-the-game__button:hover {
+	box-shadow: inset 0px 0px 24px 2px darkmagenta;
+	transition: all ease-in-out 0.5s;
 }
 
 /*

@@ -55,16 +55,25 @@ This game was executed in the chrome web browser. And, on the emulators for mobi
 
 ### Markup Validation Service from W3C
 
-The code of this project was verified at December 30th, 2018 by Markup Validation Service from W3C.
+The code of this project was verified by Markup Validation Service from W3C.
 
 #### HTML Validation Service from W3C
 
+*Version 1 and 2.*
 - No error was found.
 - Three warnings about html section without headings.
 
+*Version 3.*
+- No error was found.
+- Eight warnings about html section without headings.
+
 #### CSS Validation Service from W3C
 
-At this date, no error messages were displayed.
+*Version 1 and 2.*
+- No error messages were displayed.
+
+*Version 3.*
+- No error messages were displayed.
 
 ## Developer
 
@@ -72,10 +81,14 @@ At this date, no error messages were displayed.
 
 ## Review and version
 
-*Version 2. Review in December 30th, 2018.*
+*Version 1. Review in September, 2018.*
+
+*Version 2. Review in December, 2018.*
 
 *Version 3. Review in April and in May, 2020.*
 
 - Remove Bootstrap of this project.
 - Remove Jquery of this project.
 - Remove Google fonts of this project.
+- Improve Javascript scripts, template HTML and CSS styles.
+- Applay Block Element Modifier (BEM) methodology.

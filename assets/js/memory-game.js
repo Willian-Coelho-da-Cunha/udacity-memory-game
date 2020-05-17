@@ -1,37 +1,78 @@
-document.getElementById('start-game').classList.remove(['modal--closed']);
-document.getElementById('start-game').classList.add(['modal--opennig']);
+/**
+ * @description
+ * Open the start game modal.
+ */
+openStartGameModal();
+
+/**
+ * @description
+ * Open the start game modal.
+ */
+function openStartGameModal() {
+	document.getElementById('start-game')
+		.classList
+		.replace(
+			'modal--closed',
+			'modal--opennig'
+		)
+	;
+}
+
+/**
+ * @description
+ * Close the start game modal.
+ */
+function closeStartGameModal() {
+	let timeOutStorage = null;
+
+	document.getElementsByClassName('modal__content__action__button--start-the-game')[0]
+		.setAttribute('disabled', 'true')
+	;
+
+	document.getElementById('start-game')
+		.classList
+		.replace(
+			'modal--opennig',
+			'modal--closing'
+		)
+	;
+
+	timeOutStorage = setTimeout(() => {
+		clearTimeout(timeOutStorage);
+
+		document.getElementById('start-game')
+			.classList
+			.replace(
+				'modal--closing',
+				'modal--closed'
+			)
+		;
+
+		document.getElementsByClassName('modal__content__action__button--start-the-game')[0]
+			.removeAttribute('disabled')
+		;
+	}, 500);
+}
 
 /**
 * @description
 * This function is called in the first time after the page is loaded, when the user clicks on 
-* start game button on a modal.
+* start game button inside the modal.
 */
-
 function startGame() {
+	closeStartGameModal();
 
-	/**
-	 * @description
-	 * Close 'start-game' modal.
-	*/
-	let timeOut = null;
-
-	document.getElementsByClassName('modal__content__action__button--start-the-game')[0].setAttribute('disabled', 'true');
-	document.getElementById('start-game').classList.replace('modal--opennig', 'modal--closing');
-	timeOut = setTimeout(() => {
-		clearTimeout(timeOut);
-		document.getElementById('start-game').classList.replace('modal--closing', 'modal--closed');
-		document.getElementsByClassName('modal__content__action__button--start-the-game')[0].removeAttribute('disabled');
-	}, 1000);
-
-	/*------DISTRIBUTING CARDS------*/
 	card.rearrangeCards();
 
-	/*------INITIALIZING THE TIMER------*/
 	timer.timeOn();
 
 	addEventListener();
 }
 
+/**
+ * @description
+ * Add an event listener for each card inside the game.
+ */
 function addEventListener() {
 	const gameCards = document.querySelectorAll('.game__card');
 
@@ -40,12 +81,53 @@ function addEventListener() {
 	}
 }
 
+/**
+ * @description
+ * Remove the event listener present at each card inside the game.
+ */
 function removeEventListener() {
 	const gameCards = document.querySelectorAll('.game__card');
 
 	for (let i = 0; i < gameCards.length; i++) {
 		gameCards[i].removeEventListener('click', turnCard);
 	}
+}
+
+/**
+ * @description
+ * Check if the clicked card is a matched card.
+ * @param { string } cardHtmlId
+ * @returns { boolean }
+ */
+function isAMatchedCard(cardHtmlId) {
+	let cardMatched = false;
+
+	for (let i = 0; i < card.matchedCards.length; i++) {
+		if (card.matchedCards[i].cardHtmlId === cardHtmlId) {
+			cardMatched = true;
+			break;
+		}
+	}
+
+	return cardMatched;
+}
+
+/**
+ * @description
+ * Check if the clicked card is the same card that receved previous click event.
+ * @param { string } cardHtmlId
+ * @returns { boolean }
+ */
+function isAPreviousClickedCard(cardHtmlId) {
+	let previousCardClicked = false;
+
+	if (card.clickedCards.length === 1) {
+		if (card.clickedCards[0].cardHtmlId === cardHtmlId) {
+			previousCardClicked = true;
+		}
+	}
+
+	return previousCardClicked;
 }
 
 /**
@@ -56,193 +138,305 @@ function removeEventListener() {
 * @param { event } event
 * Characteristics of the event.
 */
-
 function turnCard(event) {
-	/*------GETTING THE CURRENT ID------*/
-	let indice = event.target.id;
+	/*
+	* Get card HTML identification.
+	*/
+	let cardHtmlId = event.target.id;
 
-	/*------CHECK IF THE CARD YOU CLICKED ON IS THE SAME AS A MATCH ALREADY FOUND------*/
-	for (let i = 0; i < card.matched.length; i++) {
-		if (card.matched[i].idDoc === indice) {
-			return;
-		}
+	/**
+	 * Check if the clicked card is a matched card.
+	 */
+	if (isAMatchedCard(cardHtmlId)) {
+		return;
 	}
 
-	/*------CHECK IF SAME CARD RECEIVED THE SECOND CLICK------*/
-	if (card.clickedCards.length === 1) {
-		if (card.clickedCards[0].idDoc === indice) {
-			return;
-		}
+	/**
+	 * Check if the clicked card is the same card that receved previous click event.
+	 */
+	if (isAPreviousClickedCard(cardHtmlId)) {
+		return;
 	}
 
-	/*------INCREASE NUMBER OF CLICKS------*/
+	/**
+	 * Increase the number of clicks.
+	 */
 	game.click++;
 
-	/*------PREVENTS THE USER'S THIRD CLICK WHILE A setTimeout FUNCTION DOES NOT END------*/
+	/**
+	 * Prevents the user's third click while the card presentation doesn't finish.
+	 */
 	if (game.click > 2) {
 		return;
 	}
 
-	/*------INCREASE THE MOVE COUNTER------*/
+	/**
+	 * Increase the movements counter.
+	 */
 	moveCounter.increaseCounter();
 
-	/*------ADD STYLE CLASS------*/
+	/**
+	 * Add style class.
+	 */
 	this.classList.add('game__card--clicked');
 
-	for (let i = 0; i <= 27; i++) {
-		if (indice === `rr${String(i)}`) {
-
-			/*------DISPLAY THE CARD------*/
+	for (let i = 0; i < card.rearrangedCards.length; i++) {
+		if (card.rearrangedCards[i].id === cardHtmlId.slice(4)) {
+			/**
+			 * Show the clicked card content to the user.
+			 */
 			this.textContent = card.rearrangedCards[i].card;
 
-			/*------kEEP THE CARD------*/
-			let objCard = {
-				idDoc: indice,
+			/**
+			 * Storage the clicked card information.
+			 */
+			let clickedCard = {
+				id: card.rearrangedCards[i].id,
 				card: card.rearrangedCards[i].card,
-				idCard: card.rearrangedCards[i].id
+				cardHtmlId: cardHtmlId
 			};
 
-			card.clickedCards.push(objCard);
+			card.clickedCards.push(clickedCard);
 		}
 	}
 
 	if (card.clickedCards.length === 2) {
+		if (card.clickedCards[0].cardHtmlId === card.clickedCards[1].cardHtmlId) {
 
-		/*------CLICKED CARDS MATCH?------*/
-		if (card.clickedCards[0].idCard === card.clickedCards[1].idCard) {
+			/**
+			 * Storage the matched cards informations.
+			 */
+			card.matchedCards.push(card.clickedCards[0]);
+			card.matchedCards.push(card.clickedCards[1]);
 
-			/*------KEEP THE CARDS------*/
-			card.matched.push(card.clickedCards[0]);
-			card.matched.push(card.clickedCards[1]);
+			/**
+			 * Replace style classes.
+			 */
+			document.getElementById(card.clickedCards[0].cardHtmlId)
+				.classList
+				.replace(
+					'game__card--clicked',
+					'game__card--matched'
+				)
+			;
 
-			/*------STYLE CARD------*/
-			document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.add('game__card--matched');
-			document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.add('game__card--matched');
-			document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.remove('game__card--clicked');
-			document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.remove('game__card--clicked');
+			document.getElementById(card.clickedCards[1].cardHtmlId)
+				.classList
+				.replace(
+					'game__card--clicked',
+					'game__card--matched'
+				)
+			;
 
-			/*------CLEAR THE CLICKED CARDS ARRAY------*/
+			/**
+			 * Clear the clicked cards array.
+			 */
 			card.clickedCards = [];
 
-			/*------RESET NUMBER OF CLICKS------*/
+			/**
+			 * Reset the number of clicks.
+			 */
 			game.click = 0;
 
-			/*------VERIFY IF ALL MATCHS WERE FOUND------*/
-			if (card.matched.length === 28) {
+			/**
+			 * Check if all matches were found.
+			 */
+			if (card.matchedCards.length === 28) {
 				removeEventListener();
 				game.gameOver();
 			}
-		} else {
-			let show;
 
-			/*------DISABLE RESTART BUTTON------*/
+		} else {
+			let timeOutStorage = null;
+
+			/**
+			 * Disable the button 'Restart the game'.
+			 */
 			document.querySelector('.restart-the-game__button').disabled = true;
 
-			/*------SHOW CLICKED CARDS WITH SOME TIME AS DELAY------*/
-			show = setTimeout(delayDisplayCard, 1000);
+			/**
+			 * Show the clicked card content to the user.
+			 */
+			timeOutStorage = setTimeout(() => {
+				clearTimeout(timeOutStorage);
+				showCardContent();
+			}, 1000);
 		}
 	}
 }
 
 /**
-* @description This function is called when the user doesn't get match two cards. This function is responsable for 
+* @description
+* This function is called when the user doesn't get match two cards. This function is responsable for 
 * preparing the game arena for a new attempt.
 */
+function showCardContent() {
 
-function delayDisplayCard() {
+	/**
+	 * Apply the initial style to the cards.
+	 */
+	document.getElementById(card.clickedCards[0].cardHtmlId)
+		.textContent = '🍀'
+	;
 
-	/*------RESTART STYLE CARD------*/
-	document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).textContent = '🍀';
-	document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).textContent = '🍀';
-	document.querySelector(`#${String(card.clickedCards[0].idDoc)}`).classList.remove('game__card--clicked');
-	document.querySelector(`#${String(card.clickedCards[1].idDoc)}`).classList.remove('game__card--clicked');
+	document.getElementById(card.clickedCards[0].cardHtmlId)
+		.classList
+		.remove('game__card--clicked')
+	;
 
-	/*------CLEAR THE CLICKED ARRAY------*/
+	document.getElementById(card.clickedCards[1].cardHtmlId)
+		.textContent = '🍀'
+	;
+
+	document.getElementById(card.clickedCards[1].cardHtmlId)
+		.classList
+		.remove('game__card--clicked')
+	;
+
+	/**
+	 * Clear the clicked cards array.
+	 */
 	card.clickedCards = [];
 
-	/*------RESET NUMBER OF CLICKS------*/
+	/**
+	 * Reset the number of clicks.
+	 */
 	game.click = 0;
 
-	/*------END OF TIME OUT------*/
-	clearTimeout(this.show);
-
-	/*------ENABLE RESTART BUTTON------*/
+	/**
+	 * Enable the button 'Restart the game'.
+	 */
 	document.querySelector('.restart-the-game__button').disabled = false;
 }
 
 /**
-* @description This function is responsable for restarting the game when the game ends and the user wants to play again 
-*	and all the times that the user click on the restart game button. This function calls some methods to restart the game 
-* and prepared the game arena. As well as, the game controllers.
+* @description
+* This function is responsable for restarting the game when the game ends and the user wants 
+* to play again and all the times that the user click on the restart game button. This 
+* function calls some methods to restart the game and prepared the game arena. As well as, 
+* the game controllers.
 */
-
 function restartGame() {
+	let matchedCards = [];
+	let clickedCard = null;
 
+	/**
+	 * Remove the event listener present at each card inside the game.
+	 */
 	removeEventListener();
 
-	/*------CHANGE THE GAME PROPERTIES------*/
+	/**
+	 * Reset the number of clicks.
+	 */
 	game.click = 0;
 
-	/*------INITIALIZING THE TIMER------*/
+	/**
+	 * Stop the timer.
+	 */
 	timer.timeOff();
 
-	/*------IF THE USER CLICK ON THE BUTTON WITH OUT MATCH NO CARDS------*/
-	let cardMatrix = [];
-	cardMatrix = document.querySelectorAll('.game__card--matched');
+	/**
+	 * Check if the user clicks on the button when there is no matched cards.
+	 */
+	matchedCards = document.querySelectorAll('.game__card--matched');
 
-	if (!(cardMatrix === null)) {
-		if (cardMatrix.length === 28) {
+	if (matchedCards) {
+		if (matchedCards.length === 28) {
 
-			/*------ADD ONE TO QUANTITY OF REPLAYS OF THE GAME------*/
+			/**
+			 * Increase the number of attempts of winning the game.
+			 */
 			game.play++;
 		}
 
-		/*------REMOVE CARD-MATCH CLASS------*/
-		for (let i = 0; i < cardMatrix.length; i++) {
-			cardMatrix[i].textContent = '.. ? ..';
-			cardMatrix[i].classList.remove('game__card--matched');
+		/**
+		 * Apply the initial style to the cards.
+		 */
+		for (let i = 0; i < matchedCards.length; i++) {
+			matchedCards[i].textContent = '🍀';
+			matchedCards[i].classList.remove('game__card--matched');
 		}
 	}
 
-	/*------FIX A BUG: CLICK ON ONE CARD AND PRESS RESTART GAME BUTTON------*/
-	let cardClicked;
-	cardClicked = document.querySelector('.game__card--clicked');
+	/**
+	 * Fix a bug that appears when the user clicks on one card and clicks on the button 
+	 * Restart the game.
+	 */
+	clickedCard = document.querySelector('.game__card--clicked');
 
-	if (!((cardClicked === undefined) || (cardClicked === null))) {
-		cardClicked.textContent = '.. ? ..';
-		cardClicked.classList.remove('game__card--clicked');
+	if (clickedCard) {
+		clickedCard.textContent = '🍀';
+		clickedCard.classList.remove('game__card--clicked');
 	}
 
-	/*------RESET THE CARD PROPERTIES------*/
-	card.matched = [];
+	/**
+	 * Restart the card properties.
+	 */
+	card.matchedCards = [];
 	card.clickedCards = [];
 
-	/*------RESTART TIMER------*/
+	/**
+	 * Restart the timer, the start rating and the movements counter.
+	 */
 	timer.restartTimer();
-
-	/*------STAR RATING AND MOVE COUNTER------*/
 	starRating.restartStartRating();
 	moveCounter.restartCounter();
 
-	/*------CALL THE FUNCTION TO START THE GAME------*/
+	/**
+	 * Start the game.
+	 */
 	startGame();
 }
 
+/**
+ * @description
+ * Restart the game when the user clicks on the button 'Play again', inside the game over modal.
+ */
 function restartGameFromGameOverModal() {
 	closeGameOverModal();
 	restartGame();
 }
 
+/**
+ * @description
+ * Close the game over modal.
+ */
 function closeGameOverModal() {
-	let timeOut = null;
+	let timeOutStorage = null;
 
-	document.getElementsByClassName('modal__content__action__button--close')[0].setAttribute('disabled', 'true');
-	document.getElementsByClassName('modal__content__action__button--play-again')[0].setAttribute('disabled', 'true');
-	document.getElementById('game-over').classList.replace('modal--opennig', 'modal--closing');
-	timeOut = setTimeout(() => {
-		clearTimeout(timeOut);
-		document.getElementById('game-over').classList.replace('modal--closing', 'modal--closed');
-		document.getElementsByClassName('modal__content__action__button--close')[0].removeAttribute('disabled');
-		document.getElementsByClassName('modal__content__action__button--play-again')[0].removeAttribute('disabled');
+	document.getElementsByClassName('modal__content__action__button--close')[0]
+		.setAttribute('disabled', 'true')
+	;
+
+	document.getElementsByClassName('modal__content__action__button--play-again')[0]
+		.setAttribute('disabled', 'true')
+	;
+
+	document.getElementById('game-over')
+		.classList
+		.replace(
+			'modal--opennig',
+			'modal--closing'
+		)
+	;
+
+	timeOutStorage = setTimeout(() => {
+		clearTimeout(timeOutStorage);
+
+		document.getElementById('game-over')
+			.classList
+			.replace(
+				'modal--closing',
+				'modal--closed'
+			)
+		;
+
+		document.getElementsByClassName('modal__content__action__button--close')[0]
+			.removeAttribute('disabled')
+		;
+
+		document.getElementsByClassName('modal__content__action__button--play-again')[0]
+			.removeAttribute('disabled')
+		;
 	}, 1000);
 }

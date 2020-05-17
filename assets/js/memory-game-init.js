@@ -19,7 +19,9 @@ let timer = {
 
 	/**@description Stop counting the time.*/
 	timeOff() {
-		clearTimeout(this.time);
+		if (this.time) {
+			clearTimeout(this.time);
+		}
 	},
 
 	/**@description Restart the timer when the user restarts the game.*/
@@ -312,7 +314,7 @@ let card = {
 	],
 	rearrangedCards: [],
 	clickedCards: [],
-	matched: [],
+	matchedCards: [],
 
 	/**
 	* @description Generate random numbers between 0 and 27 (including the two numbers).
